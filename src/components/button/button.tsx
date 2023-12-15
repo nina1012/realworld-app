@@ -1,4 +1,5 @@
 import { MouseEventHandler, ReactNode } from 'react';
+import { motion } from 'framer-motion';
 
 export type ButtonProps = {
   children: string | ReactNode;
@@ -13,22 +14,30 @@ export type ButtonProps = {
 
 export const Button = ({
   children,
+  type = 'button',
   variant,
   className,
+  icon,
   ...props
 }: ButtonProps) => {
   return (
-    <button
+    <motion.button
+      whileHover={{
+        scale: 1.01,
+        transition: { duration: 0.2 },
+      }}
+      whileTap={{ scale: 0.9 }}
       className={`
       ${
         variant === 'solid'
           ? 'bg-primary text-white border-transparent hover:bg-primary/80'
           : 'bg-transparent border-primary  text-primary hover:bg-primary hover:text-white'
       }
- px-4 py-2 cursor-pointer border-[1px] rounded-md flex justify-center items-center min-w-[100px] transition-all`}
+ px-4 py-2 cursor-pointer border-[1px] rounded-md flex justify-center gap-1 items-center min-w-[100px] transition-all`}
       {...props}
     >
+      {icon}
       {children}
-    </button>
+    </motion.button>
   );
 };
