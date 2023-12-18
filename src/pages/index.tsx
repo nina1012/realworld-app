@@ -1,7 +1,9 @@
 import SectionContainer from '@/components/common/SectionContainer';
 import Banner from '@/components/homepage/Banner';
 import TabList from '@/components/homepage/TabList';
+import { Link } from '@/components/link/Link';
 import Seo from '@/components/seo/seo';
+import Tags from '@/features/tags/components/Tags';
 
 export default function Home() {
   return (
@@ -10,12 +12,12 @@ export default function Home() {
       <div className="pb-20 md:pb-12">
         <Banner />
         <SectionContainer>
-          <div className="flex min-h-screen flex-col md:flex-row mt-6 gap-y-5 md:gap-y-0 md:gap-x-5">
-            <div className="w-full md:max-w-[75%] px-4 h-max">
+          <div className="flex min-h-screen items-start flex-col md:flex-row mt-6 gap-y-5 md:gap-y-0 md:gap-x-5">
+            <div className="w-full flex-[0_0_75%] px-4 h-max">
               <TabList />
               {/* articles go here */}
             </div>
-            {/* tags go here */}
+            <Tags />
           </div>
         </SectionContainer>
       </div>
