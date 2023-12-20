@@ -1,7 +1,6 @@
 import SectionContainer from '@/components/common/SectionContainer';
 import Banner from '@/components/homepage/Banner';
 import TabList from '@/components/homepage/TabList';
-import { Link } from '@/components/link/Link';
 import Seo from '@/components/seo/seo';
 import Tags from '@/features/tags/components/Tags';
 
