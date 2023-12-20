@@ -6,7 +6,6 @@ export type LinkProps = {
   children: ReactNode;
   href: string;
   className?: string;
-  as?: string;
 };
 
 export const Link = ({
@@ -16,7 +15,12 @@ export const Link = ({
   ...props
 }: LinkProps) => {
   return (
-    <NextLink legacyBehavior href={href} {...props}>
+    <NextLink
+      className={clsx('inline-block', className)}
+      legacyBehavior
+      href={href}
+      {...props}
+    >
       <a className={className}>{children}</a>
     </NextLink>
   );
