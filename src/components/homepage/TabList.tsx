@@ -1,6 +1,9 @@
 import { useRouter } from 'next/router';
+import { CustomLink } from '../common/CustomLink';
 import NavLink from '../common/NavLink';
+import { Conditional } from '../common/Conditional';
 import clsx from 'clsx';
+import { FiHash } from 'react-icons/fi';
 
 const TabList = () => {
   const router = useRouter();
@@ -25,6 +28,22 @@ const TabList = () => {
             Global Feed
           </NavLink>
         </li>
+        <Conditional condition={!!tag}>
+          <li>
+            <CustomLink
+              href={`/?tag=${tag}`}
+              as={`/?tag=${tag}`}
+              className={clsx(
+                !!tag &&
+                  'text-primary border-b-2 border-b-primary',
+                'px-4 py-[10px] flex items-center'
+              )}
+            >
+              <FiHash />
+              {tag}
+            </CustomLink>
+          </li>
+        </Conditional>
       </ul>
     </div>
   );
