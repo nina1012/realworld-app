@@ -2,6 +2,7 @@ import SectionContainer from '@/components/common/SectionContainer';
 import Banner from '@/components/homepage/Banner';
 import TabList from '@/components/homepage/TabList';
 import Seo from '@/components/seo/seo';
+import ArticleList from '@/features/articles/components/ArticleList';
 import Tags from '@/features/tags/components/Tags';
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
             <div className="w-full flex-[0_0_75%] px-4 h-max">
               <TabList />
               {/* articles go here */}
+              <ArticleList />
             </div>
             <Tags />
           </div>

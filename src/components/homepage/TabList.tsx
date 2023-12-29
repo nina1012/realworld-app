@@ -21,7 +21,7 @@ const TabList = () => {
             as="/"
             className={clsx(
               !tag &&
-                'text-primary border-b-2 border-b-primary',
+                'text-primary border-b-2 border-b-primary transition-all',
               'px-4 py-[10px]'
             )}
           >
@@ -35,7 +35,7 @@ const TabList = () => {
               as={`/?tag=${tag}`}
               className={clsx(
                 !!tag &&
-                  'text-primary border-b-2 border-b-primary',
+                  'text-primary border-b-2 border-b-primary transition-all',
                 'px-4 py-[10px] flex items-center'
               )}
             >
