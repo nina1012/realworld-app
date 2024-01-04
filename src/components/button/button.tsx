@@ -1,5 +1,6 @@
 import { MouseEventHandler, ReactNode } from 'react';
 import { motion } from 'framer-motion';
+import clsx from 'clsx';
 
 export type ButtonProps = {
   children: string | ReactNode;
@@ -27,13 +28,16 @@ export const Button = ({
         transition: { duration: 0.2 },
       }}
       whileTap={{ scale: 0.9 }}
-      className={`
+      className={clsx(
+        `
       ${
         variant === 'solid'
           ? 'bg-primary text-white border-transparent hover:bg-primary/80'
           : 'bg-transparent border-primary  text-primary hover:bg-primary hover:text-white'
       }
- px-4 py-2 cursor-pointer border-[1px] rounded-md flex justify-center gap-1 items-center min-w-[100px] transition-all`}
+ px-4 py-2 cursor-pointer border-[1px] rounded-md flex justify-center gap-1 items-center min-w-[100px] transition-all`,
+        className
+      )}
       {...props}
     >
       {icon}
