@@ -3,9 +3,12 @@ import Banner from '@/components/homepage/Banner';
 import TabList from '@/components/homepage/TabList';
 import Seo from '@/components/seo/seo';
 import ArticleList from '@/features/articles/components/ArticleList';
+import { useUser } from '@/features/auth/api/get-auth-user';
 import Tags from '@/features/tags/components/Tags';
 
 export default function Home() {
+  const { data } = useUser();
+
   return (
     <>
       <Seo title="Home - Conduit" />
