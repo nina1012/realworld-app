@@ -76,6 +76,7 @@ export const RegisterForm = ({
               variant="solid"
               className="self-end"
               type="submit"
+              // isDisabled={register?.isLoading}
             >
               Sign up
             </Button>

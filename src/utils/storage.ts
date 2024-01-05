@@ -2,8 +2,10 @@ import { AuthUser } from '@/features/auth';
 
 const storage = {
   getUser: (): AuthUser => {
-    return JSON.parse(
-      window.localStorage.getItem('user') || ''
+    return (
+      JSON.parse(
+        window.localStorage.getItem('user') || ''
+      ) || null
     );
   },
   setUser: (userData: AuthUser) => {

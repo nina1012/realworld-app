@@ -6,7 +6,7 @@ export type ButtonProps = {
   children: string | ReactNode;
   type?: 'button' | 'submit' | 'reset';
   isLoading?: boolean;
-  isDisabled?: boolean;
+  isdisabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   icon?: JSX.Element;
   className: string;

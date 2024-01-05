@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ForwardedRef, forwardRef, useRef } from 'react';
+import { ForwardedRef, forwardRef } from 'react';
 
 import {
   FieldError,

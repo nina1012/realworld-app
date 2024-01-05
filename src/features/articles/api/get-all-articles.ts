@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 export const getAllArticles = (tag: string) => {
   return apiClient.get(`${BASE_URL_API}/articles${
     tag ? '?tag=' + tag + '&' : ''
-  }?limit=${LIMIT}
+  }?limit=10&offset=0
 `);
 };
 
