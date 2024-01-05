@@ -5,11 +5,11 @@ import { Button } from '@/components/button/button';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { useLogin } from '../../api/login';
-import { AuthUser, LoginData } from '../..';
+import { LoginData } from '../..';
 import { getAuthUser } from '../../api/get-auth-user';
 
 export type LoginFormProps = {
-  onSuccess: () => AuthUser | {};
+  onSuccess: () => LoginData | {};
 };
 
 export const LoginForm = ({
@@ -17,9 +17,10 @@ export const LoginForm = ({
 }: LoginFormProps) => {
   const loginFn = useLogin({ onSuccess });
 
-  const { register, handleSubmit, formState } = useForm();
+  const { register, handleSubmit, formState } =
+    useForm<LoginData>();
 
-  const onSubmit = (data: LoginData): void => {
+  const onSubmit = (data: LoginData) => {
     loginFn.submit(data);
     getAuthUser();
   };
@@ -42,7 +43,7 @@ export const LoginForm = ({
               Need an account?
             </Link>
           </div>
-          {/* <form
+          <form
             onSubmit={handleSubmit(onSubmit)}
             className="!flex flex-col flex-nowrap mx-auto sm:w-[540px]"
           >
@@ -66,11 +67,11 @@ export const LoginForm = ({
               type="submit"
               className="!ml-auto"
               variant="solid"
-              isdisabled={register?.isLoading}
+              isdisabled={loginFn?.isPending}
             >
               Sign up
             </Button>
-          </form> */}
+          </form>
         </div>
       </SectionContainer>
     </div>
