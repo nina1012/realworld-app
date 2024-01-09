@@ -5,11 +5,11 @@ import { InputField } from '@/components/form/input-field';
 import { useRegister } from '../../api/register';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
-import { RegisterData } from '../..';
-import { getAuthUser } from '../../api/get-auth-user';
+import { AuthUser, RegisterData } from '../..';
+import { getCurrentUser } from '../../api/get-auth-user';
 
 export type RegisterFormProps = {
-  onSuccess: () => RegisterData | {};
+  onSuccess: () => RegisterData | AuthUser | null;
 };
 
 export const RegisterForm = ({
@@ -23,7 +23,7 @@ export const RegisterForm = ({
 
   const onSubmit = (data: RegisterData) => {
     registerFn.submit(data);
-    getAuthUser();
+    getCurrentUser();
   };
 
   return (
@@ -76,7 +76,6 @@ export const RegisterForm = ({
               variant="solid"
               className="self-end"
               type="submit"
-              isdisabled={registerFn?.isPending}
             >
               Sign up
             </Button>

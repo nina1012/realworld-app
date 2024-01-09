@@ -8,7 +8,7 @@ import { LoginForm } from '@/features/auth/components/login-form/login-form';
 const LoginPage = () => {
   const router = useRouter();
 
-  const onSuccess = (): AuthUser => {
+  const onSuccess = (): AuthUser | null => {
     router.replace('/auth/me');
     return storage.getUser() || null;
   };

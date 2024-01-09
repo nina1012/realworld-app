@@ -5,11 +5,11 @@ import { Button } from '@/components/button/button';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { useLogin } from '../../api/login';
-import { LoginData } from '../..';
-import { getAuthUser } from '../../api/get-auth-user';
+import { AuthUser, LoginData } from '../..';
+import { useUser } from '../../api/get-auth-user';
 
 export type LoginFormProps = {
-  onSuccess: () => LoginData | {};
+  onSuccess: () => LoginData | AuthUser | null;
 };
 
 export const LoginForm = ({
@@ -22,8 +22,9 @@ export const LoginForm = ({
 
   const onSubmit = (data: LoginData) => {
     loginFn.submit(data);
-    getAuthUser();
   };
+
+  const { data: userData } = useUser();
 
   return (
     <div className="py-4 h-[calc(100vh-100px)]">
@@ -67,7 +68,6 @@ export const LoginForm = ({
               type="submit"
               className="!ml-auto"
               variant="solid"
-              isdisabled={loginFn?.isPending}
             >
               Sign up
             </Button>
