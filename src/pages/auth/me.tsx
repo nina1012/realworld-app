@@ -5,11 +5,10 @@ import storage from '@/utils/storage';
 
 const MePage = () => {
   const { data } = useUser();
-  console.log(data);
   return (
     <>
-      <Seo title="Profile" />
-      <h1>{data?.user.username}</h1>
+      <Seo title={`${data?.user.username}`} />
+      <h1>Currently logged user</h1>
     </>
   );
 };

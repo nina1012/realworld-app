@@ -1,8 +1,15 @@
 import SectionContainer from './SectionContainer';
 import NavLink from './NavLink';
 import LogoLink from './LogoLink';
+import { useUser } from '@/features/auth/api/get-auth-user';
+import { Conditional } from './Conditional';
+import Image from 'next/image';
+import { HiOutlinePencilSquare } from 'react-icons/hi2';
+import { CiSettings } from 'react-icons/ci';
 
 const Navbar = () => {
+  const { data } = useUser();
+
   return (
     <nav className="py-4 flex w-full max-w-[1140px] mx-auto">
       <SectionContainer styles="mx-0 w-full">
@@ -11,7 +18,29 @@ const Navbar = () => {
             <LogoLink />
           </div>
           <ul className="flex items-center">
-            <li>
+            <Conditional condition={!!data}>
+              <NavLink href="/" isActive={true}>
+                <span>Home</span>
+              </NavLink>
+              <NavLink
+                href="/editor/new"
+                icon={HiOutlinePencilSquare}
+                isActive={true}
+              >
+                <span>New Article</span>
+              </NavLink>
+              <NavLink
+                href="/settings"
+                icon={CiSettings}
+                isActive={true}
+              >
+                <span>Settings</span>
+              </NavLink>
+              <NavLink href="/auth/me" isActive={true}>
+                <span>{data?.user?.username}</span>
+              </NavLink>
+            </Conditional>
+            <Conditional condition={!data}>
               <NavLink href="/" isActive={true}>
                 <span>Home</span>
               </NavLink>
@@ -27,7 +56,7 @@ const Navbar = () => {
               >
                 <span>Sign up</span>
               </NavLink>
-            </li>
+            </Conditional>
           </ul>
         </div>
       </SectionContainer>
