@@ -1,7 +1,7 @@
 import SectionContainer from './SectionContainer';
 import NavLink from './NavLink';
 import LogoLink from './LogoLink';
-import { useUser } from '@/features/auth/api/get-auth-user';
+import { useUser } from '@/features/auth/api/get-current-user';
 import { Conditional } from './Conditional';
 import Image from 'next/image';
 import { HiOutlinePencilSquare } from 'react-icons/hi2';
@@ -25,18 +25,18 @@ const Navbar = () => {
               <NavLink
                 href="/editor/new"
                 icon={HiOutlinePencilSquare}
-                isActive={true}
+                isActive={false}
               >
                 <span>New Article</span>
               </NavLink>
               <NavLink
                 href="/settings"
                 icon={CiSettings}
-                isActive={true}
+                isActive={false}
               >
                 <span>Settings</span>
               </NavLink>
-              <NavLink href="/auth/me" isActive={true}>
+              <NavLink href="/auth/me" isActive={false}>
                 <span>{data?.user?.username}</span>
               </NavLink>
             </Conditional>

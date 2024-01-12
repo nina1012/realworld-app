@@ -24,8 +24,8 @@ const NavLink = ({
     <Link
       href={href}
       className={clsx(
-        isActive ? 'text-gray-700' : 'text-gray-300',
-        'mx-2 hover:text-gray-500  transition-colors flex items-center gap-1'
+        isActive ? '!text-gray-700' : '!text-gray-300',
+        'mx-2 hover:text-gray-500 transition-colors flex items-center gap-1'
       )}
       {...props}
     >

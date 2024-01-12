@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { useLogin } from '../../api/login';
 import { AuthUser, LoginData } from '../..';
-import { useUser } from '../../api/get-auth-user';
+import { useUser } from '../../api/get-current-user';
 
 export type LoginFormProps = {
   onSuccess: () => LoginData | AuthUser | null;

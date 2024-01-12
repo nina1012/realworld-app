@@ -6,7 +6,7 @@ import { useRegister } from '../../api/register';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { AuthUser, RegisterData } from '../..';
-import { getCurrentUser } from '../../api/get-auth-user';
+import { getCurrentUser } from '../../api/get-current-user';
 
 export type RegisterFormProps = {
   onSuccess: () => RegisterData | AuthUser | null;
