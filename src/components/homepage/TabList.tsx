@@ -4,23 +4,43 @@ import NavLink from '../common/NavLink';
 import { Conditional } from '../common/Conditional';
 import clsx from 'clsx';
 import { FiHash } from 'react-icons/fi';
+import storage from '@/utils/storage';
+import { Button } from '../button';
 
 const TabList = () => {
   const router = useRouter();
   const {
     query: { tag },
   } = router;
+  const user = storage.getUser();
 
   return (
     <div className="h-[42px]">
       <ul className="flex items-center h-full">
         {/* this is rendered when no user is logged in */}
+        <Conditional condition={!!user}>
+          {' '}
+          <li>
+            <NavLink
+              href={`/follow=${user?.user?.username}`}
+              as="/"
+              className={clsx(
+                !tag &&
+                  'text-primary border-b-2 border-b-primary transition-all',
+                'px-4 py-[10px]'
+              )}
+            >
+              Your Feed
+            </NavLink>
+          </li>
+        </Conditional>
         <li>
           <NavLink
             href="/"
             as="/"
             className={clsx(
-              !tag &&
+              !tag && '',
+              !user &&
                 'text-primary border-b-2 border-b-primary transition-all',
               'px-4 py-[10px]'
             )}

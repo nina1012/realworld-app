@@ -30,7 +30,7 @@ const Navbar = () => {
                 <span>New Article</span>
               </NavLink>
               <NavLink
-                href="/settings"
+                href="/auth/settings"
                 icon={CiSettings}
                 isActive={false}
               >

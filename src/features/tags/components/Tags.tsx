@@ -1,5 +1,5 @@
 import Spinner from '@/components/common/Spinner';
-import { Link } from '@/components/link/Link';
+import { Link } from '@/components/link/link';
 import { useTags } from '@/features/tags';
 
 const Tags = () => {

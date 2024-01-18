@@ -6,12 +6,14 @@ export type LinkProps = {
   children: ReactNode;
   href: string;
   className?: string;
+  icon?: JSX.Element;
 };
 
 export const Link = ({
   children,
   href,
   className,
+  icon,
   ...props
 }: LinkProps) => {
   return (
@@ -21,7 +23,10 @@ export const Link = ({
       href={href}
       {...props}
     >
-      <a className={className}>{children}</a>
+      <a className={className}>
+        {icon}
+        {children}
+      </a>
     </NextLink>
   );
 };
