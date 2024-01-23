@@ -52,6 +52,7 @@ export const SettingsForm = ({
           </div>
           <form
             onSubmit={handleSubmit(onSubmit)}
+            autoComplete={'true'}
             className="!flex flex-col flex-nowrap mx-auto sm:w-[540px]"
           >
             <InputField
