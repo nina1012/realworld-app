@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { ForwardedRef, forwardRef } from 'react';
 
 import {
+  ChangeHandler,
   FieldError,
   UseFormRegister,
 } from 'react-hook-form';
@@ -10,6 +11,7 @@ export type InputFieldProps = {
   label?: string;
   error?: FieldError;
   className?: string;
+  onChange?: ChangeHandler;
 } & Partial<
   ReturnType<UseFormRegister<Record<string, unknown>>>
 >;
@@ -39,6 +41,7 @@ export const InputField = forwardRef(
           {...inputProps}
           ref={ref}
         />
+
         {error && <div>{error.message}</div>}
       </div>
     );

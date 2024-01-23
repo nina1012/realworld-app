@@ -1,4 +1,4 @@
-import { RegisterForm } from '@/features/auth/components/register-form/register-form';
+import { SettingsForm } from '@/features/auth/components/settings-form';
 import { useRouter } from 'next/router';
 import Seo from '@/components/seo/seo';
 import { AuthUser } from '@/features/auth';
@@ -13,8 +13,8 @@ const RegisterPage = () => {
 
   return (
     <>
-      <Seo title="Sign up - Conduit" />
-      <RegisterForm onSuccess={onSuccess} />
+      <Seo title="Your settings - Conduit" />
+      <SettingsForm onSuccess={onSuccess} />
     </>
   );
 };
