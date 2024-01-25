@@ -4,8 +4,9 @@ import { InputField } from '@/components/form/input-field';
 import { useLogout } from '../../api/logout';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
-import { AuthUser } from '../..';
+import { AuthUser, UpdateUser } from '../..';
 import { getCurrentUser } from '../../api/get-current-user';
+import { useUpdate } from '../../api/update-user';
 
 export type SettingsFormProps = {
   onSuccess: () => AuthUser | null;
@@ -26,16 +27,25 @@ export const SettingsForm = ({
   const user = getCurrentUser();
 
   // form submit settings
+
+  const updateFn = useUpdate({ onSuccess });
+
   const { register, handleSubmit, formState } =
-    useForm<AuthUser>({
+    useForm<UpdateUser>({
       defaultValues: {
-        ...user,
+        user: {
+          image: user?.user.image,
+          username: user?.user.username,
+          bio: user?.user.bio,
+          email: user?.user.email,
+          password: undefined,
+        },
       },
     });
 
-  const onSubmit = (data: AuthUser) => {
-    console.log(formState.isLoading);
-    console.log(data);
+  const onSubmit = (data: UpdateUser) => {
+    console.log('onSubmit', data);
+    updateFn.submit(data);
   };
 
   return (
@@ -86,6 +96,14 @@ export const SettingsForm = ({
                 (formState.errors as any)['user.email']
               }
               {...register('user.email')}
+            />
+            <InputField
+              type="password"
+              label="New Password"
+              error={
+                (formState.errors as any)['user.password']
+              }
+              {...register('user.password')}
             />
 
             <Button

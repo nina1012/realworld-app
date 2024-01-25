@@ -13,10 +13,21 @@ export type AuthUser = {
     token: 'string';
     bio: 'string';
     image: 'string';
+    id?: 'number';
   };
 };
 
 export type LoginData = {
   email: string;
   password: string;
+};
+
+export type UpdateUser = {
+  user: {
+    email: 'string';
+    password: 'string';
+    username: 'string';
+    bio: 'string';
+    image: 'string';
+  };
 };
