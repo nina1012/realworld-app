@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { AuthUser, UpdateUser } from '../..';
 import { getCurrentUser } from '../../api/get-current-user';
 import { useUpdate } from '../../api/update-user';
+import { useNotifications } from '@/stores/notifications/notifications';
 
 export type SettingsFormProps = {
   onSuccess: () => AuthUser | null;
@@ -15,14 +16,6 @@ export type SettingsFormProps = {
 export const SettingsForm = ({
   onSuccess,
 }: SettingsFormProps) => {
-  const { submit: logout } = useLogout();
-  const router = useRouter();
-
-  const handleLogout = () => {
-    router.replace('/');
-    logout();
-  };
-
   // getting user's data
   const user = getCurrentUser();
 
@@ -44,8 +37,23 @@ export const SettingsForm = ({
     });
 
   const onSubmit = (data: UpdateUser) => {
-    console.log('onSubmit', data);
     updateFn.submit(data);
+  };
+
+  // Logout functionality
+  const { submit: logout } = useLogout();
+  const router = useRouter();
+  const { showNotification } = useNotifications();
+
+  const handleLogout = () => {
+    router.replace('/');
+    showNotification({
+      type: 'success',
+      title: 'Logging out',
+      duration: 1000,
+      message: 'Logging out',
+    });
+    logout();
   };
 
   return (

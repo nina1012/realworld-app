@@ -11,20 +11,29 @@ type UseRegisterOptions = {
 export const registerFn = async (
   data: RegisterData
 ): Promise<RegisterData> => {
-  const response: RegisterData = await apiClient.post(
-    `${BASE_URL_API}/users`,
-    {
-      user: { ...data },
-    }
-  );
-  const currentUser = await response;
-  // once the user registered, user's profile will be stored in localStorage
-  currentUser &&
-    window.localStorage.setItem(
-      'user',
-      JSON.stringify(currentUser)
+  try {
+    const response: RegisterData = await apiClient.post(
+      `${BASE_URL_API}/users`,
+      {
+        user: { ...data },
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
     );
-  return currentUser;
+    const currentUser = await response;
+    // once the user registered, user's profile will be stored in localStorage
+    currentUser &&
+      window.localStorage.setItem(
+        'user',
+        JSON.stringify(currentUser)
+      );
+    return currentUser;
+  } catch (error) {
+    throw new Error(`Login failed, ${error}`);
+  }
 };
 
 export const useRegister = ({

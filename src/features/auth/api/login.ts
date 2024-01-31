@@ -26,13 +26,13 @@ export const loginFn = async (
       }
     );
     //reassign newly logged in user to be stored in localStorage
-    const currentUser = await response;
+    const currentUser = response;
 
     window.localStorage.setItem(
       'user',
       JSON.stringify(currentUser)
     );
-    return currentUser.data;
+    return currentUser?.data;
   } catch (error) {
     throw new Error(`Login failed, ${error}`);
   }

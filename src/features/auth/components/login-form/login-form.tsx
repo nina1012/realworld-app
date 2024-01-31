@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { useLogin } from '../../api/login';
 import { AuthUser, LoginData } from '../..';
-import { useUser } from '../../api/get-current-user';
+import { useNotifications } from '@/stores/notifications/notifications';
 
 export type LoginFormProps = {
   onSuccess: () => LoginData | AuthUser | null;
@@ -20,11 +20,17 @@ export const LoginForm = ({
   const { register, handleSubmit, formState } =
     useForm<LoginData>();
 
+  const { showNotification } = useNotifications();
+
   const onSubmit = (data: LoginData) => {
     loginFn.submit(data);
+    showNotification({
+      type: 'success',
+      title: 'Success',
+      duration: 1000,
+      message: 'Successfully logged in!',
+    });
   };
-
-  const { data: userData } = useUser();
 
   return (
     <div className="py-4 h-[calc(100vh-100px)]">
