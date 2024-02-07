@@ -4,6 +4,7 @@ import {
   Notification,
 } from '@/stores/notifications/notifications';
 import { AiOutlineCloseSquare } from 'react-icons/ai';
+import { Button } from '../button';
 
 export const Notifications = () => {
   const { notifications, dismissNotification } =
@@ -11,12 +12,12 @@ export const Notifications = () => {
 
   if (notifications.length < 1) return null;
   return (
-    <section className="fixed z-1 p-4 right-0 top-4 w-1/2 max-w-[400px]">
-      <div className="flex gap-4 flex-col-reverse">
+    <section className="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
+      <div className="group pointer-events-auto relative flex w-full items-center justify-between space-x-2 overflow-hidden rounded-md p-4 pr-6 shadow-lg transition-all border bg-white text-black">
         {notifications.map((notification) => (
           <div
             key={notification.id}
-            className="bg-slate-400"
+            className="grid gap-1"
           >
             <NotificationToast
               notification={notification}
@@ -40,16 +41,24 @@ export const NotificationToast = ({
 }: NotificationToastProps) => {
   const { id, type, title, message } = notification;
   return (
-    <div className="w-full sm:w-[300px] bg-white shadow-md rounded-md">
-      <div className="flex justify-between">
-        <div>
-          <h4>{title}</h4>
-          {message && <div>{message}</div>}
-        </div>
-        <button onClick={() => onDismiss(id)}>
-          <AiOutlineCloseSquare />
-        </button>
+    <div className="flex items-center justify-between gap-4">
+      <div>
+        <h4 className="text-sm font-semibold [&amp;+div]:text-xs">
+          {title}
+        </h4>
+        {message && (
+          <div className="opacity-90 text-sm">
+            {message}
+          </div>
+        )}
       </div>
+      <Button
+        className="inline-flex h-8"
+        onClick={() => onDismiss(id)}
+      >
+        {/* <AiOutlineCloseSquare /> */}
+        Close
+      </Button>
     </div>
   );
 };
