@@ -26,7 +26,7 @@ export const LoginForm = ({
     loginFn.submit(data);
     showNotification({
       type: 'success',
-      title: 'Success',
+      title: 'Logging in',
       duration: 1000,
       message: 'Successfully logged in!',
     });

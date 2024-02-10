@@ -20,7 +20,6 @@ export const SettingsForm = ({
   const user = getCurrentUser();
 
   // form submit settings
-
   const updateFn = useUpdate({ onSuccess });
 
   const { register, handleSubmit, formState } =
@@ -38,6 +37,12 @@ export const SettingsForm = ({
 
   const onSubmit = (data: UpdateUser) => {
     updateFn.submit(data);
+    showNotification({
+      type: 'success',
+      title: 'Updated info',
+      duration: 1000,
+      message: 'Successfully updated your profile info',
+    });
   };
 
   // Logout functionality

@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { AuthUser, RegisterData } from '../..';
 import { getCurrentUser } from '../../api/get-current-user';
+import { useNotifications } from '@/stores/notifications';
 
 export type RegisterFormProps = {
   onSuccess: () => RegisterData | AuthUser | null;
@@ -21,9 +22,17 @@ export const RegisterForm = ({
   const { handleSubmit, register, formState } =
     useForm<RegisterData>();
 
+  const { showNotification } = useNotifications();
+
   const onSubmit = (data: RegisterData) => {
     registerFn.submit(data);
     getCurrentUser();
+    showNotification({
+      type: 'success',
+      title: 'Registering',
+      duration: 1000,
+      message: 'Successfully registered',
+    });
   };
 
   return (
