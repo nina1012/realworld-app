@@ -9,7 +9,7 @@ export type Article = Entity & {
   updatedAt: Date;
   favorited: boolean;
   favoritesCount: number;
-  //   author: Profile // to do!!!
+  // author: Profile // to do!!!
 };
 
 export type CreateArticle = Pick<

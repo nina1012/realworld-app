@@ -1,6 +1,7 @@
 import { BASE_URL_API, LIMIT } from '@/config/constants';
 import { apiClient } from '@/lib/api-client';
 import { useQuery } from '@tanstack/react-query';
+import { Article } from '../types';
 
 // Get most recent articles globally. Use query parameters to filter results. Auth is optional
 export const getAllArticles = (tag: string) => {
