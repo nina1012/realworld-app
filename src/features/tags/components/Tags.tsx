@@ -6,7 +6,7 @@ const Tags = () => {
   const { data, isLoading } = useTags();
 
   return (
-    <div className="relative flex-[0_0_25%] w-1/4 min-h-[160px] bg-zinc-100 px-3 py-3 rounded-md ml-auto">
+    <div className="relative w-full md:flex-[0_0_25%] min-h-[160px] bg-zinc-100 px-3 py-3 rounded-md ml-auto">
       <p className="mb-4 text-md">Popular tags</p>
 
       <div className="flex flex-wrap h-full w-full">
@@ -19,7 +19,7 @@ const Tags = () => {
           />
         )}
         {!data && !isLoading && (
-          <h1 className=" font-bold text-red-400">
+          <h1 className="font-bold text-red-400">
             Error, please refresh the page 😕
           </h1>
         )}

@@ -13,7 +13,7 @@ export default function Home() {
         <Banner />
         <SectionContainer>
           <div className="flex min-h-screen items-start flex-col md:flex-row mt-6 gap-y-5 md:gap-y-0 md:gap-x-5">
-            <div className="w-full flex-[0_0_75%] px-4 h-max">
+            <div className="w-full md:flex-[0_0_75%] h-max">
               <TabList />
               {/* articles go here */}
               <ArticleList />
