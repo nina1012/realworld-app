@@ -5,7 +5,6 @@ import { Conditional } from '../common/Conditional';
 import clsx from 'clsx';
 import { FiHash } from 'react-icons/fi';
 import storage from '@/utils/storage';
-import { Button } from '../button';
 
 const TabList = () => {
   const router = useRouter();
@@ -15,48 +14,42 @@ const TabList = () => {
   const user = storage.getUser();
 
   return (
-    <div className="h-[42px]">
+    <div className="h-[42px] -mb-[1px]">
       <ul className="flex items-center h-full">
-        {/* this is rendered when no user is logged in */}
+        {/* this is rendered when user is logged in */}
         <Conditional condition={!!user}>
           {' '}
           <li>
             <NavLink
               href={`/follow=${user?.user?.username}`}
               as="/"
-              className={clsx(
-                !tag &&
-                  'text-primary border-b-2 border-b-primary transition-all',
-                'px-4 py-[10px]'
-              )}
+              className={clsx(!tag ? 'tab-link' : '')}
             >
               Your Feed
             </NavLink>
           </li>
         </Conditional>
+        {/* this is rendered when user is logged in and not */}
         <li>
           <NavLink
             href="/"
             as="/"
             className={clsx(
-              !tag && '',
-              !user &&
-                'text-primary border-b-2 border-b-primary transition-all',
-              'px-4 py-[10px]'
+              !tag && 'tab-link active-tab',
+              !!tag && !user && 'tab-link'
             )}
           >
             Global Feed
           </NavLink>
         </li>
+        {/* this is rendered only when user chooses the tag to filter articles */}
         <Conditional condition={!!tag}>
           <li>
             <CustomLink
               href={`/?tag=${tag}`}
               as={`/?tag=${tag}`}
               className={clsx(
-                !!tag &&
-                  'text-primary border-b-2 border-b-primary transition-all',
-                'px-4 py-[10px] flex items-center'
+                !!tag && 'active-tab tab-link'
               )}
             >
               <FiHash />
@@ -65,6 +58,7 @@ const TabList = () => {
           </li>
         </Conditional>
       </ul>
+      <hr className="text-gray-400" />
     </div>
   );
 };

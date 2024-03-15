@@ -10,6 +10,7 @@ export type NavLinkProps = {
   isActive?: boolean;
   as?: string;
   className?: string;
+  onClick?: () => void;
   icon?: IconFunction | null;
 };
 

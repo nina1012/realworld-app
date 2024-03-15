@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .tab-link {
+    @apply flex items-center !text-neutral-400 px-4 py-[10px] border-b-transparent;
+  }
+  .active-tab.tab-link {
+    @apply !text-primary border-b-2 border-b-primary;
+  }
+}

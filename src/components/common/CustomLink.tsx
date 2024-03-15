@@ -6,6 +6,7 @@ export type CustomLinkProps = {
   as?: string;
   className?: string;
   children: ReactNode;
+  onClick?: () => void;
 };
 
 export const CustomLink = ({
