@@ -18,12 +18,13 @@ const TabList = () => {
       <ul className="flex items-center h-full">
         {/* this is rendered when user is logged in */}
         <Conditional condition={!!user}>
-          {' '}
           <li>
             <NavLink
               href={`/follow=${user?.user?.username}`}
               as="/"
-              className={clsx(!tag ? 'tab-link' : '')}
+              className={clsx(
+                !tag ? 'tab-link' : 'tab-link'
+              )}
             >
               Your Feed
             </NavLink>
@@ -36,7 +37,8 @@ const TabList = () => {
             as="/"
             className={clsx(
               !tag && 'tab-link active-tab',
-              !!tag && !user && 'tab-link'
+              !!tag && !user && 'tab-link',
+              !!user && !!tag && 'tab-link'
             )}
           >
             Global Feed
@@ -58,7 +60,6 @@ const TabList = () => {
           </li>
         </Conditional>
       </ul>
-      <hr className="text-gray-400" />
     </div>
   );
 };
