@@ -1,25 +1,26 @@
 import { BASE_URL } from '@/config/constants';
-import Link from 'next/link';
+import { Link } from '@/components/link/link';
 import { AiFillHeart } from 'react-icons/ai';
 import { Article } from '../types';
+import ArticleMeta from './ArticleMeta';
 
-const ArticlePreview = (props: Article) => {
+export default function ArticlePreview({
+  ...article
+}: Article) {
   const {
-    // author: { username, image },
-    createdAt,
     favoritesCount,
     slug,
     title,
     description,
     tagList,
-  } = props;
+  } = article;
 
-  if (!props) return;
+  if (!article) return null;
 
   return (
     <article className="py-4 border-t-[1px] border-t-neutral-200">
       <div className="flex items-center mb-4">
-        {/* <ArticleInfo article={article} /> */}
+        <ArticleMeta {...article} />
         <div className="">
           <button className="flex items-center bg-transparent text-primary border-primary border-[1px] p-1 text-sm rounded-sm transition-colors hover:bg-primary hover:text-white">
             <AiFillHeart />
@@ -35,17 +36,19 @@ const ArticlePreview = (props: Article) => {
           <p className="text-base font-light leading-normal mb-4">
             {description}
           </p>
-          <div className="flex justify-between">
+          <div className="flex justify-between flex-wrap lg:flex-nowrap">
             <span className="!text-sm !font-extralight">
               Read more...
             </span>
-            <ul className="tag-list font-light text-sm text-[#ddd] flex max-w-[50%]">
+            <ul className="tag-list font-light text-sm text-[#ddd] flex flex-wrap gap-y-1 max-w-[50%]">
               {tagList?.map((tag: string) => (
                 <li
-                  className=" border-[1px] border-zinc-300 px-2 mx-1 rounded-full "
+                  className="border-[1px] border-zinc-300 transition-colors px-2 mx-1 rounded-full hover:border-primary hover:text-primary"
                   key={tag}
                 >
-                  {tag}
+                  <Link href={`/?tag=${tag}`} key={tag}>
+                    {tag}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -54,6 +57,4 @@ const ArticlePreview = (props: Article) => {
       </Link>
     </article>
   );
-};
-
-export default ArticlePreview;
+}

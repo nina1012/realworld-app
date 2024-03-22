@@ -1,6 +1,7 @@
 import Spinner from '@/components/common/Spinner';
 import { useAllArticles } from '../api/get-all-articles';
 import { useRouter } from 'next/router';
+import ArticlePreview from './ArticlePreview';
 
 const ArticleList = () => {
   const router = useRouter();
@@ -20,7 +21,14 @@ const ArticleList = () => {
           alignment={''}
         />
       ) : (
-        <div>{JSON.stringify(data)}</div>
+        <div className="mb-12">
+          {data?.articles?.map((article) => (
+            <ArticlePreview
+              {...article}
+              key={article.slug}
+            />
+          ))}
+        </div>
       )}
     </div>
   );

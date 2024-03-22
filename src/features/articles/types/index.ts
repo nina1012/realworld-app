@@ -1,6 +1,10 @@
 import { Entity } from '@/types';
 
-export type Article = Entity & {
+export type Articles = {
+  articles: Article[];
+};
+
+export type Article = {
   slug: string;
   title: string;
   description: string;
@@ -9,7 +13,13 @@ export type Article = Entity & {
   updatedAt: Date;
   favorited: boolean;
   favoritesCount: number;
-  // author: Profile // to do!!!
+  createdAt: Date;
+  author: {
+    username: string;
+    bio: string;
+    image: string;
+    following: boolean;
+  };
 };
 
 export type CreateArticle = Pick<
