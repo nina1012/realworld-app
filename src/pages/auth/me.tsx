@@ -8,6 +8,7 @@ import { GoGear } from 'react-icons/go';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Link } from '@/components/link/link';
+import TabList from '@/components/homepage/TabList';
 
 const MePage = () => {
   const { data, isPending } = useUser();
@@ -59,6 +60,7 @@ const MePage = () => {
         <div className="flex min-h-screen items-start flex-col md:flex-row mt-6 gap-y-5 md:gap-y-0 md:gap-x-5">
           <div className="w-full px-4 h-max">
             {/* articles go here */}
+            <TabList />
             <div> Articles go here...</div>
           </div>
         </div>
