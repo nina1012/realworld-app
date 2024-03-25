@@ -1,12 +1,14 @@
 import { BASE_URL } from '@/config/constants';
 import { Link } from '@/components/link/link';
 import { AiFillHeart } from 'react-icons/ai';
-import { Article } from '../types';
+import { ArticleType } from '../types';
 import ArticleMeta from './ArticleMeta';
 
 export default function ArticlePreview({
-  ...article
-}: Article) {
+  article,
+}: {
+  article: ArticleType['article'];
+}) {
   const {
     favoritesCount,
     slug,
@@ -20,7 +22,7 @@ export default function ArticlePreview({
   return (
     <article className="py-4 border-t-[1px] border-t-neutral-200">
       <div className="flex items-center mb-4">
-        <ArticleMeta {...article} />
+        <ArticleMeta article={article} />
         <div className="">
           <button className="flex items-center bg-transparent text-primary border-primary border-[1px] p-1 text-sm rounded-sm transition-colors hover:bg-primary hover:text-white">
             <AiFillHeart />

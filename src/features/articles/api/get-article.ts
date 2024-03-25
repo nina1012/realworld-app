@@ -1,21 +1,15 @@
-import { BASE_URL } from '@/config/constants';
+import { BASE_URL_API } from '@/config/constants';
 import { apiClient } from '@/lib/api-client';
 import { useQuery } from '@tanstack/react-query';
-import { Article } from '../types';
+import { ArticleType } from '../types';
 
-export const getArticle = async (
+// Get an article. Auth not required
+export const getArticle = (
   slug: string
-): Promise<Article | null> => {
-  try {
-    const response = await apiClient.get(
-      `${BASE_URL}/articles/${slug}`
-    );
-    return response.data;
-  } catch (error) {
-    // Handle error or return null/undefined
-    console.error('Error fetching article:', error);
-    return null;
-  }
+): Promise<ArticleType | null> => {
+  return apiClient.get(
+    `${BASE_URL_API}/articles/${slug}`
+  );
 };
 
 export const useArticle = (slug: string) => {

@@ -22,12 +22,14 @@ const ArticleList = () => {
         />
       ) : (
         <div className="mb-12">
-          {data?.articles?.map((article) => (
-            <ArticlePreview
-              {...article}
-              key={article.slug}
-            />
-          ))}
+          {data?.articles?.map((article) => {
+            return (
+              <ArticlePreview
+                article={article}
+                key={article.slug}
+              />
+            );
+          })}
         </div>
       )}
     </div>
