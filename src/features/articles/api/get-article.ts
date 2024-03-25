@@ -7,6 +7,9 @@ import { ArticleType } from '../types';
 export const getArticle = (
   slug: string
 ): Promise<ArticleType | null> => {
+  if (!slug) {
+    return Promise.resolve(null);
+  }
   return apiClient.get(
     `${BASE_URL_API}/articles/${slug}`
   );

@@ -12,6 +12,19 @@ const ArticlePage = () => {
     query: { slug },
   } = router;
   const { data, isLoading } = useArticle(slug as string);
+
+  if (isLoading) {
+    return (
+      <div className="h-screen flex justify-center items-center">
+        <Spinner
+          color={''}
+          w={'80'}
+          h={'80'}
+          alignment={'center'}
+        />
+      </div>
+    );
+  }
   if (!data) return;
 
   if (!data && !isLoading) {
@@ -35,41 +48,29 @@ const ArticlePage = () => {
       />
 
       <div>
-        {isLoading ? (
-          <div className="h-screen flex justify-center items-center">
-            <Spinner
-              color={''}
-              w={'80'}
-              h={'80'}
-              alignment={'center'}
-            />
-          </div>
-        ) : (
-          <div>
-            {/* banner */}
-            <div className="banner w-full text-white bg-zinc-800 ">
-              <SectionContainer styles="text-left">
-                <div className="py-8">
-                  <h1
-                    style={{
-                      textShadow:
-                        '0px 1px 3px rgba(0, 0, 0, 0.3) ',
-                    }}
-                    className="text-4xl leading-10 md:text-5xl md:leading-normal xl:text-6xl font-titillium font-bold text-shadow-[0px_1px_3px_rgba(0,0,0,0.3)] mb-4"
-                  >
-                    {data?.article.title}
-                  </h1>
-                  <ArticleMeta article={data?.article} />
-                </div>
-              </SectionContainer>
+        {/* banner */}
+        <div className="banner w-full text-white bg-zinc-800 ">
+          <SectionContainer styles="text-left">
+            <div className="py-8">
+              <h1
+                style={{
+                  textShadow:
+                    '0px 1px 3px rgba(0, 0, 0, 0.3) ',
+                }}
+                className="text-4xl leading-10 md:text-5xl md:leading-normal xl:text-6xl font-titillium font-bold text-shadow-[0px_1px_3px_rgba(0,0,0,0.3)] mb-4"
+              >
+                {data?.article.title}
+              </h1>
+              <ArticleMeta article={data?.article} />
             </div>
-            <div className="page mt-6">
-              <div className="article-content">
-                <div>Tags go here...</div>
-              </div>
-            </div>
+          </SectionContainer>
+        </div>
+        <div className="page mt-6">
+          <div className="article-content">
+            {data.article.body}
+            <div>Tags go here...</div>
           </div>
-        )}
+        </div>
       </div>
     </>
   );

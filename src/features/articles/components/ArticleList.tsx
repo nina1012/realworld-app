@@ -14,12 +14,14 @@ const ArticleList = () => {
   return (
     <div className="mb-12 flex h-full flex-col justify-center">
       {isLoading ? (
-        <Spinner
-          color={''}
-          w={''}
-          h={''}
-          alignment={''}
-        />
+        <div className="h-[calc(100vh/2)] flex justify-center items-center">
+          <Spinner
+            color={''}
+            w={''}
+            h={''}
+            alignment={'center'}
+          />
+        </div>
       ) : (
         <div className="mb-12">
           {data?.articles?.map((article) => {
