@@ -5,6 +5,8 @@ import { useRouter } from 'next/router';
 import { CustomLink } from '@/components/common/CustomLink';
 import SectionContainer from '@/components/common/SectionContainer';
 import ArticleMeta from '@/features/articles/components/ArticleMeta';
+import { marked } from 'marked';
+import Tags from '@/features/tags/components/Tags';
 
 const ArticlePage = () => {
   const router = useRouter();
@@ -39,6 +41,10 @@ const ArticlePage = () => {
     );
   }
 
+  const articleBody = {
+    __html: marked(data.article.body),
+  };
+
   return (
     <>
       <Seo
@@ -57,7 +63,7 @@ const ArticlePage = () => {
                   textShadow:
                     '0px 1px 3px rgba(0, 0, 0, 0.3) ',
                 }}
-                className="text-4xl leading-10 md:text-5xl md:leading-normal xl:text-6xl font-titillium font-bold text-shadow-[0px_1px_3px_rgba(0,0,0,0.3)] mb-4"
+                className="text-4xl leading-10 md:text-5xl md:leading-normal font-titillium font-bold text-shadow-[0px_1px_3px_rgba(0,0,0,0.3)] mb-4"
               >
                 {data?.article.title}
               </h1>
@@ -65,12 +71,17 @@ const ArticlePage = () => {
             </div>
           </SectionContainer>
         </div>
-        <div className="page mt-6">
-          <div className="article-content">
-            {data.article.body}
-            <div>Tags go here...</div>
+        <div className="container page mt-6">
+          <div className="article-content sm:text-lg">
+            <div
+              className="mb-8"
+              dangerouslySetInnerHTML={articleBody}
+            />
+            <Tags articleTags={data.article.tagList} />
           </div>
         </div>
+        <hr className="container my-8" />
+        {/* comments go here... */}
       </div>
     </>
   );
