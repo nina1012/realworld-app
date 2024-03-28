@@ -23,7 +23,11 @@ export type ArticleType = {
   };
 };
 
-export type CreateArticle = Pick<
-  ArticleType['article'],
-  'title' | 'description' | 'body' | 'tagList'
->;
+export type CreateArticle = {
+  article: {
+    title: string;
+    description: string;
+    body: string;
+    tagList: string[];
+  };
+};
