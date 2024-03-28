@@ -13,7 +13,7 @@ const RegisterPage = () => {
 
   return (
     <>
-      <Seo title="Sign up - Conduit" />
+      <Seo title="Conduit | Sign up" />
       <RegisterForm onSuccess={onSuccess} />
     </>
   );

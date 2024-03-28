@@ -28,7 +28,7 @@ const MePage = () => {
     <>
       <Seo
         title={`Conduit ${
-          isPending ? '' : data?.user.username
+          isPending ? '' : '| ' + data?.user.username
         }`}
       />
       <div className="w-full bg-zinc-100">

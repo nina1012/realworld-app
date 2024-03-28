@@ -13,7 +13,7 @@ const RegisterPage = () => {
 
   return (
     <>
-      <Seo title="Your Settings - Conduit" />
+      <Seo title="Conduit | Your Settings" />
       <SettingsForm onSuccess={onSuccess} />
     </>
   );

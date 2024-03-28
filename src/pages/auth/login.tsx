@@ -15,7 +15,7 @@ const LoginPage = () => {
 
   return (
     <>
-      <Seo title="Sign In - Conduit" />
+      <Seo title="Conduit | Sign In" />
       {/* login form which should redirect to homepage onSuccess */}
       <LoginForm onSuccess={onSuccess} />
     </>
