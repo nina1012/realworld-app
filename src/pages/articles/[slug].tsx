@@ -53,7 +53,7 @@ const ArticlePage = () => {
         }`}
       />
 
-      <div>
+      <div className="h-[calc(100vh-125px)]">
         {/* banner */}
         <div className="banner w-full text-white bg-zinc-800 ">
           <SectionContainer styles="text-left">
