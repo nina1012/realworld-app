@@ -42,21 +42,21 @@ export default function ArticlePreview({
             <span className="!text-sm !font-extralight">
               Read more...
             </span>
-            <ul className="tag-list font-light text-sm text-[#ddd] flex flex-wrap gap-y-1 max-w-[50%]">
-              {tagList?.map((tag: string) => (
-                <li
-                  className="border-[1px] border-zinc-300 transition-colors px-2 mx-1 rounded-full hover:border-primary hover:text-primary"
-                  key={tag}
-                >
-                  <Link href={`/?tag=${tag}`} key={tag}>
-                    {tag}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </Link>
+      <ul className="tag-list font-light text-sm text-[#ddd] flex flex-wrap justify-end gap-y-1">
+        {tagList?.map((tag: string) => (
+          <li
+            className="border-[1px] border-zinc-300 transition-colors px-2 mx-1 rounded-full hover:border-primary hover:text-primary"
+            key={tag}
+          >
+            <Link href={`/?tag=${tag}`} key={tag}>
+              {tag}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </article>
   );
 }
