@@ -1,5 +1,5 @@
 import { BASE_URL_API } from '@/config/constants';
-import { CreateArticle } from '@/features/articles';
+import { NewArticle } from '@/features/articles';
 import { apiClient } from '@/lib/api-client';
 import { queryClient } from '@/lib/react-query';
 import {
@@ -8,15 +8,15 @@ import {
 } from '@tanstack/react-query';
 
 type UseCreateOptions = {
-  onSuccess?: (article: CreateArticle) => void;
-  article: CreateArticle;
+  onSuccess?: (article: NewArticle) => void;
+  article: NewArticle;
   token: string;
 };
 
 export const createNewArticle = async (
-  article: CreateArticle,
+  article: NewArticle,
   token: string
-): Promise<CreateArticle> => {
+): Promise<NewArticle> => {
   try {
     const response = await apiClient.post(
       `${BASE_URL_API}/articles`,
@@ -28,7 +28,7 @@ export const createNewArticle = async (
         },
       }
     );
-    return response.data as CreateArticle;
+    return response.data as NewArticle;
   } catch (error) {
     console.error('Error creating article:', error);
     throw new Error('Failed to create article');
@@ -45,9 +45,9 @@ export const useCreateNewArticle = ({
   };
 
   const options: UseMutationOptions<
-    CreateArticle,
+    NewArticle,
     Error,
-    CreateArticle
+    NewArticle
   > = {
     mutationFn, // Pass the mutation function
     mutationKey: ['new-article'],

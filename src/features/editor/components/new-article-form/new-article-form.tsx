@@ -1,7 +1,7 @@
 import { Button } from '@/components/button';
 import SectionContainer from '@/components/common/SectionContainer';
 import { InputField } from '@/components/form/input-field';
-import { CreateArticle } from '@/features/articles';
+import { NewArticle } from '@/features/articles';
 import { useCreateNewArticle } from '@/features/articles/api/create-new-article';
 import { useNotifications } from '@/stores/notifications';
 import storage from '@/utils/storage';
@@ -16,7 +16,7 @@ export const NewArticleForm = ({
   onSuccess,
 }: NewArticleFormProps) => {
   const { handleSubmit, register, formState, watch } =
-    useForm<CreateArticle>({
+    useForm<NewArticle>({
       defaultValues: {
         article: {
           title: '',
@@ -29,7 +29,7 @@ export const NewArticleForm = ({
   const { showNotification } = useNotifications();
 
   const article = watch(); // Get the form data
-  const { submit: createArticle, isPending } =
+  const { submit: NewArticle, isPending } =
     useCreateNewArticle({
       onSuccess: () => {
         onSuccess();
@@ -38,9 +38,9 @@ export const NewArticleForm = ({
       token: storage.getUser()?.user?.token || '',
     });
 
-  const onSubmit = async (data: CreateArticle) => {
+  const onSubmit = async (data: NewArticle) => {
     try {
-      await createArticle(data);
+      await NewArticle(data);
       showNotification({
         type: 'success',
         title: 'New Article published',

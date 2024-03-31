@@ -52,7 +52,7 @@ export const LoginForm = ({
           </div>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="form"
+            className="!flex flex-col flex-nowrap mx-auto sm:w-[540px]"
           >
             <InputField
               type="email"

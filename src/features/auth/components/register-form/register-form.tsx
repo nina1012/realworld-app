@@ -55,7 +55,7 @@ export const RegisterForm = ({
           </div>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="form"
+            className="!flex flex-col flex-nowrap mx-auto sm:w-[540px]"
           >
             <InputField
               type="text"

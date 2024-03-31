@@ -23,7 +23,7 @@ export type ArticleType = {
   };
 };
 
-export type CreateArticle = {
+export type NewArticle = {
   article: {
     title: string;
     description: string;

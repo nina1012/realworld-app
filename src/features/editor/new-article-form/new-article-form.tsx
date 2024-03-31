@@ -1,23 +1,23 @@
 import { Button } from '@/components/button';
 import SectionContainer from '@/components/common/SectionContainer';
 import { InputField } from '@/components/form/input-field';
-import { CreateArticle } from '@/features/articles';
+import { NewArticle } from '@/features/articles';
 import { useNotifications } from '@/stores/notifications';
 import { FieldError, useForm } from 'react-hook-form';
 
 export type NewArticleFormProps = {
-  onSuccess: () => CreateArticle;
+  onSuccess: () => NewArticle;
 };
 
 export const NewArticleForm = ({
   onSuccess,
 }: NewArticleFormProps) => {
   const { handleSubmit, register, formState } =
-    useForm<CreateArticle>();
+    useForm<NewArticle>();
 
   const { showNotification } = useNotifications();
 
-  const onSubmit = (data: CreateArticle) => {
+  const onSubmit = (data: NewArticle) => {
     // submit the article data
     console.log(data);
     showNotification({
