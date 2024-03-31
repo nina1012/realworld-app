@@ -67,7 +67,10 @@ export const NewArticleForm = ({
               New Article
             </h2>
           </div>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="form"
+          >
             <InputField
               type="text"
               label="Article Title"
