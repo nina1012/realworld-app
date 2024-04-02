@@ -19,7 +19,7 @@ export default function ArticleMeta({
   return (
     <div className={clsx('mr-auto flex', 'article-meta')}>
       <CustomLink
-        href="/profile/[pid]"
+        href={`/profile/${username}`}
         as={`/profile/${encodeURIComponent(username)}`}
         className="flex self-center text-base text-primary mr-2"
       >
@@ -33,7 +33,7 @@ export default function ArticleMeta({
       </CustomLink>
       <div className="flex flex-col">
         <CustomLink
-          href={`${BASE_URL_API}/profiles/${encodeURIComponent(
+          href={`/profile/${encodeURIComponent(
             username
           )}`}
           className="text-base text-primary font-medium hover:underline"
