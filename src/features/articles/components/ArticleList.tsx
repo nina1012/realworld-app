@@ -8,8 +8,12 @@ const ArticleList = () => {
   const { query } = router;
 
   const tag = query.tag as string;
+  const author = query.username as string;
 
-  const { data, isLoading } = useAllArticles(tag);
+  const { articles, isLoading } = useAllArticles(
+    tag,
+    author
+  );
 
   return (
     <div className="mb-12 flex h-full flex-col justify-center">
@@ -24,7 +28,7 @@ const ArticleList = () => {
         </div>
       ) : (
         <div className="mb-12">
-          {data?.articles?.map((article) => {
+          {articles?.articles?.map((article) => {
             return (
               <ArticlePreview
                 article={article}

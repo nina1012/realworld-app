@@ -2,6 +2,7 @@ import SectionContainer from '@/components/common/SectionContainer';
 import Spinner from '@/components/common/Spinner';
 import { Link } from '@/components/link/link';
 import Seo from '@/components/seo/seo';
+import ArticleList from '@/features/articles/components/ArticleList';
 import { useProfile } from '@/features/profiles/api/get-profile';
 import ProfileTab from '@/features/profiles/components/ProfileTab';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
@@ -88,7 +89,7 @@ export default function ProfilePage() {
             {profile && (
               <ProfileTab profile={profile?.profile} />
             )}
-            <div> Articles go here...</div>
+            <ArticleList />
           </div>
         </div>
       </SectionContainer>
