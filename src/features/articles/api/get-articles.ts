@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { ArticlesType } from '../types';
 
 // Get most recent articles globally. Use query parameters to filter results. Auth is optional
-export const getAllArticles = (
+export const getArticles = (
   tag?: string,
   author?: string
 ): Promise<ArticlesType | null> => {
@@ -23,13 +23,13 @@ export const getAllArticles = (
 `);
 };
 
-export const useAllArticles = (
+export const useArticles = (
   tag?: string,
   author?: string
 ) => {
   const { data: articles, isLoading } = useQuery({
-    queryKey: ['all-articles', tag, author],
-    queryFn: () => getAllArticles(tag, author),
+    queryKey: ['articles', tag, author],
+    queryFn: () => getArticles(tag, author),
   });
 
   return { articles: articles || null, isLoading };

@@ -7,6 +7,8 @@ import SectionContainer from '@/components/common/SectionContainer';
 import ArticleMeta from '@/features/articles/components/ArticleMeta';
 import { marked } from 'marked';
 import Tags from '@/features/tags/components/Tags';
+import { useComments } from '@/features/comments/api/get-comments';
+import CommentList from '@/features/comments/components/CommentList';
 
 const ArticlePage = () => {
   const router = useRouter();
@@ -14,6 +16,8 @@ const ArticlePage = () => {
     query: { slug },
   } = router;
   const { data, isLoading } = useArticle(slug as string);
+  const { comments, isLoading: isLoadingComments } =
+    useComments(slug as string);
 
   if (isLoading) {
     return (
@@ -82,6 +86,7 @@ const ArticlePage = () => {
         </div>
         <hr className="container my-8" />
         {/* comments go here... */}
+        <CommentList />
       </div>
     </>
   );

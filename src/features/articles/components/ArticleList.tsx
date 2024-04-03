@@ -1,5 +1,5 @@
 import Spinner from '@/components/common/Spinner';
-import { useAllArticles } from '../api/get-all-articles';
+import { useArticles } from '../api/get-articles';
 import { useRouter } from 'next/router';
 import ArticlePreview from './ArticlePreview';
 
@@ -10,7 +10,7 @@ const ArticleList = () => {
   const tag = query.tag as string;
   const author = query.username as string;
 
-  const { articles, isLoading } = useAllArticles(
+  const { articles, isLoading } = useArticles(
     tag,
     author
   );

@@ -3,7 +3,7 @@ import LogoLink from './LogoLink';
 
 const Footer = () => {
   return (
-    <footer className="bg-zinc-100 py-4 absolute w-full">
+    <footer className="bg-zinc-100 py-4 absolute w-full mt-12">
       <SectionContainer styles="!text-left">
         <LogoLink />
         <span className="text-xs text-[#bbb]">
