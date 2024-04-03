@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { CommentType, useComments } from '..';
-import CommentInput from './CommentInput';
+import CommentForm from './CommentForm';
 import Comment from './Comment';
 
 export default function CommentList() {
@@ -12,7 +12,7 @@ export default function CommentList() {
   return (
     <div className="container">
       <div className="flex mx-auto flex-col w-10/12">
-        <CommentInput />
+        <CommentForm />
         <div className="flex flex-col gap-y-3">
           {comments?.comments.map(
             (comment: CommentType) => (

@@ -1,10 +1,8 @@
 import { Button } from '@/components/button';
 import { CustomLink } from '@/components/common/CustomLink';
 import { InputField } from '@/components/form/input-field';
-import { AuthUser } from '@/features/auth';
 import checkLogin from '@/utils/checkLogin';
 import storage from '@/utils/storage';
-import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
@@ -42,10 +40,7 @@ export default function CommentInput() {
   }
 
   return (
-    <form
-      className="form rounded-md mb-3"
-      // onSubmit={handleSubmit}
-    >
+    <form className="form rounded-md mb-3">
       <InputField
         type="textarea"
         label="Write a comment"

@@ -15,6 +15,6 @@
   }
 
   .form {
-    @apply !flex flex-col flex-nowrap mx-auto sm:w-[540px];
+    @apply !flex flex-col flex-nowrap mx-auto w-full md:w-[540px];
   }
 }
