@@ -7,7 +7,6 @@ export default function Comment({
 }: {
   comment: CommentType;
 }) {
-  console.log(comment);
   return (
     <div className="comment-card flex-col flex-nowrap mx-auto sm:w-[540px] border-[1px] border-gray-200 rounded">
       <div className="comment-body p-5 bg-white">

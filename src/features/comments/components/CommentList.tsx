@@ -9,10 +9,14 @@ export default function CommentList() {
     query: { slug },
   } = router;
   const { comments } = useComments(slug as string);
+
+  const onSuccess = () => {
+    router.replace(`/articles/${slug}`);
+  };
   return (
     <div className="container">
-      <div className="flex mx-auto flex-col w-10/12">
-        <CommentForm />
+      <div className="flex mx-auto flex-col">
+        <CommentForm onSuccess={onSuccess} />
         <div className="flex flex-col gap-y-3">
           {comments?.comments.map(
             (comment: CommentType) => (
