@@ -3,12 +3,20 @@ import clsx from 'clsx';
 import { BASE_URL_API } from '@/config/constants';
 import Image from 'next/image';
 import { CustomLink } from '@/components/common/CustomLink';
+import ArticleActions from './ArticleActions';
+import { useRouter } from 'next/router';
+import { Conditional } from '@/components/common/Conditional';
 
 export default function ArticleMeta({
   article,
 }: {
   article: ArticleType['article'];
 }) {
+  // only show ArticleActions when on articles page
+  const router = useRouter();
+  const isArticlesPage =
+    router.pathname.includes('articles');
+
   if (!article) return null;
 
   const {
@@ -17,7 +25,12 @@ export default function ArticleMeta({
   } = article;
 
   return (
-    <div className={clsx('mr-auto flex', 'article-meta')}>
+    <div
+      className={clsx(
+        'mr-auto flex flex-col items-center lg:flex-row',
+        'article-meta'
+      )}
+    >
       <CustomLink
         href={`/profile/${username}`}
         as={`/profile/${encodeURIComponent(username)}`}
@@ -44,6 +57,9 @@ export default function ArticleMeta({
           {new Date(createdAt).toDateString()}
         </span>
       </div>
+      <Conditional condition={isArticlesPage}>
+        <ArticleActions article={article} />
+      </Conditional>
     </div>
   );
 }

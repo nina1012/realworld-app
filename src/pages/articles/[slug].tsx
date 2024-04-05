@@ -9,6 +9,7 @@ import { marked } from 'marked';
 import Tags from '@/features/tags/components/Tags';
 import { useComments } from '@/features/comments/api/get-comments';
 import CommentList from '@/features/comments/components/CommentList';
+import { ArticleType } from '@/features/articles';
 
 const ArticlePage = () => {
   const router = useRouter();
@@ -31,22 +32,30 @@ const ArticlePage = () => {
       </div>
     );
   }
-  if (!data) return;
 
   if (!data && !isLoading) {
     return (
-      <div>
+      <>
         <Seo title={`Conduit`} />
-        <p>No article found.</p>
-        <CustomLink href={'/'} className="button ">
-          Back to home
-        </CustomLink>
-      </div>
+        <div className="min-h-[85vh] flex justify-center items-center">
+          <SectionContainer styles="text-center">
+            <h1 className="text-2xl">
+              No article found.
+            </h1>
+            <CustomLink
+              href={'/'}
+              className="button text-primary hover:underline"
+            >
+              Back to home
+            </CustomLink>
+          </SectionContainer>
+        </div>
+      </>
     );
   }
 
   const articleBody = {
-    __html: marked(data.article.body),
+    __html: marked(data?.article?.body as string),
   };
 
   return (
@@ -57,7 +66,7 @@ const ArticlePage = () => {
         }`}
       />
 
-      <div className="h-full">
+      <div className="min-h-screen">
         {/* banner */}
         <div className="banner w-full text-white bg-zinc-800 ">
           <SectionContainer styles="text-left">
@@ -71,22 +80,36 @@ const ArticlePage = () => {
               >
                 {data?.article.title}
               </h1>
-              <ArticleMeta article={data?.article} />
+              <ArticleMeta
+                article={
+                  data?.article as ArticleType['article']
+                }
+              />
             </div>
           </SectionContainer>
         </div>
+        {/* Body and tags */}
         <div className="container page mt-6">
           <div className="article-content sm:text-lg">
             <div
               className="mb-8"
               dangerouslySetInnerHTML={articleBody}
             />
-            <Tags articleTags={data.article.tagList} />
+            <Tags articleTags={data?.article.tagList} />
           </div>
         </div>
         <hr className="container my-8" />
         {/* comments go here... */}
-        <CommentList />
+        {isLoadingComments ? (
+          <Spinner
+            color={''}
+            w={''}
+            h={''}
+            alignment={''}
+          />
+        ) : (
+          <CommentList />
+        )}
       </div>
     </>
   );

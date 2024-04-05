@@ -17,4 +17,8 @@
   .form {
     @apply !flex flex-col flex-nowrap mx-auto w-full md:w-[540px];
   }
+
+  .action-button {
+    @apply flex text-sm h-full !w-auto;
+  }
 }

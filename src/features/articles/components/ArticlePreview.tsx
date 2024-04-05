@@ -3,6 +3,7 @@ import { Link } from '@/components/link/link';
 import { AiFillHeart } from 'react-icons/ai';
 import { ArticleType } from '../types';
 import ArticleMeta from './ArticleMeta';
+import { Button } from '@/components/button';
 
 export default function ArticlePreview({
   article,
@@ -23,11 +24,13 @@ export default function ArticlePreview({
     <article className="py-4 border-t-[1px] border-t-neutral-200">
       <div className="flex items-center mb-4">
         <ArticleMeta article={article} />
-        <div className="">
-          <button className="flex items-center bg-transparent text-primary border-primary border-[1px] p-1 text-sm rounded-sm transition-colors hover:bg-primary hover:text-white">
-            <AiFillHeart />
+        <div className="flex ml-auto">
+          <Button
+            className="flex items-center bg-transparent text-primary border-primary border-[1px] text-sm rounded-sm transition-colors hover:bg-primary hover:text-white h-8 w-auto min-w-min "
+            icon={<AiFillHeart />}
+          >
             <span>{favoritesCount}</span>
-          </button>
+          </Button>
         </div>
       </div>
       <Link href={`${BASE_URL}/articles/${slug}`}>

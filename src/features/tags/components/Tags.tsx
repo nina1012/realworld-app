@@ -17,7 +17,7 @@ const Tags = ({ articleTags }: TagsProps) => {
           <Link
             href={`/?tag=${tag}`}
             key={tag}
-            className="text-sm py-[2px] px-3 rounded-3xl bg-white border-slate-500 border-[1px] text-slate-500 mr-1 mb-1 transition-colors hover:bg-gray-500 hover:text-white"
+            className="text-sm py-[2px] px-3 rounded-3xl bg-white border-zinc-300 border-[1px] text-zinc-300 mr-1 mb-1 transition-colors hover:bg-gray-500 hover:text-white"
           >
             {tag}
           </Link>

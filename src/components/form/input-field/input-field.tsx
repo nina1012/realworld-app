@@ -9,6 +9,7 @@ import {
 export type InputFieldProps = {
   type: 'text' | 'email' | 'password' | 'textarea';
   label?: string;
+  id?: string;
   error?: FieldError;
   required?: boolean;
   className?: string;

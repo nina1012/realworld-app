@@ -14,7 +14,7 @@ export default function Comment({
   const user = useUser();
   const isLoggedIn = checkLogin(user.data);
 
-  const isAuthor =
+  const canModify =
     isLoggedIn &&
     user.data?.user.username === comment.author.username;
 
@@ -48,7 +48,7 @@ export default function Comment({
         <span className="ml-2 text-stone-300">
           {new Date(comment.createdAt).toDateString()}
         </span>
-        <Conditional condition={isAuthor}>
+        <Conditional condition={canModify}>
           <CommentDeleteButton commentId={comment.id} />
         </Conditional>
       </div>

@@ -15,7 +15,7 @@ export type CommentFormProps = {
   onSuccess: () => void;
 };
 
-export default function CommentInput({
+export default function CommentForm({
   onSuccess,
 }: CommentFormProps) {
   const user = storage.getUser();
@@ -71,6 +71,7 @@ export default function CommentInput({
   };
 
   // check if user can write the comment
+  console.log(typeof isPending);
   if (!isLoggedIn) {
     return (
       <div className="my-8 text-center">
@@ -101,6 +102,7 @@ export default function CommentInput({
     >
       <InputField
         type="textarea"
+        id="body"
         label="Write a comment"
         className="!mb-0 !h-[100px]"
         error={(formState.errors as any)['comment.body']}
