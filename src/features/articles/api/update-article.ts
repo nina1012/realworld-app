@@ -3,20 +3,20 @@ import { apiClient } from '@/lib/api-client';
 import { ArticleType } from '..';
 import { useMutation } from '@tanstack/react-query';
 import { queryClient } from '@/lib/react-query';
+import storage from '@/utils/storage';
 
 type UseUpdateArticleOptions = {
   onSuccess?: (data: ArticleType) => ArticleType;
   updatedArticle: ArticleType;
   slug: string;
-  token: string;
 };
 
 export const updateArticle = async (
   slug: string,
-  updatedArticle: ArticleType,
-  token: string
+  updatedArticle: ArticleType
 ): Promise<ArticleType> => {
   try {
+    const token = storage.getUser()?.user.token;
     const response = await apiClient.put(
       `${BASE_URL_API}/articles/${slug}`,
       JSON.stringify(updatedArticle),
@@ -38,14 +38,9 @@ export const useUpdateArticle = ({
   onSuccess,
   updatedArticle,
   slug,
-  token,
 }: UseUpdateArticleOptions) => {
   const mutationFn = async (data: ArticleType) => {
-    return await updateArticle(
-      slug,
-      updatedArticle,
-      token
-    );
+    return await updateArticle(slug, updatedArticle);
   };
   const options = {
     mutationFn,

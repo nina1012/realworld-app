@@ -7,7 +7,6 @@ import {
 } from '@/features/articles';
 import { useUpdateArticle } from '@/features/articles/api/update-article';
 import { useNotifications } from '@/stores/notifications';
-import storage from '@/utils/storage';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { FieldError, useForm } from 'react-hook-form';
@@ -46,7 +45,6 @@ export const UpdateArticleForm = ({
       },
       slug: slug as string,
       updatedArticle,
-      token: storage.getUser()?.user.token as string,
     });
 
   const onSubmit = async (data: ArticleType) => {

@@ -18,7 +18,11 @@
     @apply !flex flex-col flex-nowrap mx-auto w-full md:w-[540px];
   }
 
-  .action-button {
+  .button-like-link {
+    @apply px-4 py-2 cursor-pointer border-[1px] rounded-md flex justify-center gap-1 items-center min-w-[100px] transition-all;
+  }
+
+  .action-link {
     @apply flex text-sm h-full !w-auto;
   }
 }
