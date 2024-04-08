@@ -56,6 +56,8 @@ export const LoginForm = ({
           >
             <InputField
               type="email"
+              id="email"
+              autoComplete="true"
               label="Email"
               error={formState.errors['email']}
               {...register('email', {
@@ -64,6 +66,8 @@ export const LoginForm = ({
             />
             <InputField
               type="password"
+              id="password"
+              autoComplete="true"
               label="Password"
               error={formState.errors['password']}
               {...register('password', {

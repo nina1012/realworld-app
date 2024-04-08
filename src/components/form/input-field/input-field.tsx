@@ -13,6 +13,7 @@ export type InputFieldProps = {
   error?: FieldError;
   required?: boolean;
   className?: string;
+  autoComplete?: 'true' | 'false';
 } & Partial<
   ReturnType<UseFormRegister<Record<string, unknown>>>
 >;

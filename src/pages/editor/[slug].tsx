@@ -1,5 +1,5 @@
 import Seo from '@/components/seo/seo';
-import { UpdateArticleForm } from '@/features/editor/components/uodate-article-form/update-article-form';
+import { UpdateArticleForm } from '@/features/editor/components/update-article-form/update-article-form';
 import { useRouter } from 'next/router';
 
 export default function NewPage() {

@@ -80,6 +80,8 @@ export const SettingsForm = ({
           >
             <InputField
               type="text"
+              id="user.image"
+              autoComplete="true"
               label="URL of profile picture"
               error={
                 (formState.errors as any)['user.image']
@@ -88,6 +90,8 @@ export const SettingsForm = ({
             />
             <InputField
               type="text"
+              id="user.username"
+              autoComplete="true"
               label="Username"
               error={
                 (formState.errors as any)['user.username']
@@ -96,6 +100,8 @@ export const SettingsForm = ({
             />
             <InputField
               type="textarea"
+              id="user.bio"
+              autoComplete="true"
               label="Short bio about you"
               error={
                 (formState.errors as any)['user.bio']
@@ -104,6 +110,8 @@ export const SettingsForm = ({
             />
             <InputField
               type="email"
+              id="user.email"
+              autoComplete="true"
               label="Email"
               error={
                 (formState.errors as any)['user.email']
@@ -112,6 +120,8 @@ export const SettingsForm = ({
             />
             <InputField
               type="password"
+              id="user.password"
+              autoComplete="true"
               label="New Password"
               error={
                 (formState.errors as any)['user.password']

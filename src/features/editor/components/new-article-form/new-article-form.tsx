@@ -73,6 +73,7 @@ export const NewArticleForm = ({
           >
             <InputField
               type="text"
+              id="article.title"
               label="Article Title"
               error={
                 formState.errors['article'] as FieldError
@@ -83,6 +84,7 @@ export const NewArticleForm = ({
             />
             <InputField
               type="text"
+              id="article.description"
               label="Article Description"
               error={
                 formState.errors['article'] as FieldError
@@ -93,6 +95,7 @@ export const NewArticleForm = ({
             />
             <InputField
               type="textarea"
+              id="article.body"
               label="Article Body (in markdown)"
               error={
                 formState.errors['article'] as FieldError
