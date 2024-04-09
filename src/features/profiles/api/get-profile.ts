@@ -1,7 +1,7 @@
 import { BASE_URL_API } from '@/config/constants';
 import { apiClient } from '@/lib/api-client';
 import { useQuery } from '@tanstack/react-query';
-import { ProfileType } from '../types/ProfileType';
+import { ProfileType } from '../types';
 
 export const getProfile = async (
   name: string

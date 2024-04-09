@@ -4,11 +4,11 @@ import { useArticle } from '@/features/articles/api/get-article';
 import { useRouter } from 'next/router';
 import { CustomLink } from '@/components/common/CustomLink';
 import SectionContainer from '@/components/common/SectionContainer';
-import ArticleMeta from '@/features/articles/components/ArticleMeta';
+import ArticleMeta from '@/features/articles/components/ArticleMeta/ArticleMeta';
 import { marked } from 'marked';
-import Tags from '@/features/tags/components/Tags';
+import Tags from '@/features/tags/components/Tags/Tags';
 import { useComments } from '@/features/comments/api/get-comments';
-import CommentList from '@/features/comments/components/CommentList';
+import CommentList from '@/features/comments/components/CommentList/CommentList';
 import { ArticleType } from '@/features/articles';
 
 const ArticlePage = () => {

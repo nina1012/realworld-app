@@ -1,7 +1,7 @@
 import Spinner from '@/components/common/Spinner';
-import { useArticles } from '../api/get-articles';
+import { useArticles } from '../../api/get-articles';
 import { useRouter } from 'next/router';
-import ArticlePreview from './ArticlePreview';
+import ArticlePreview from '../ArticlePreview/ArticlePreview';
 
 const ArticleList = () => {
   const router = useRouter();

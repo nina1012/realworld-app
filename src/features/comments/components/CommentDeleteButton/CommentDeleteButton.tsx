@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useDeleteComment } from '../api/delete-comment';
+import { useDeleteComment } from '../../api/delete-comment';
 import { HiOutlineTrash } from 'react-icons/hi2';
 import clsx from 'clsx';
 

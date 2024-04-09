@@ -1,8 +1,8 @@
 // api
-export * from './api/register';
-export * from './api/login';
 export * from './api/get-current-user';
+export * from './api/login';
 export * from './api/logout';
+export * from './api/register';
 export * from './api/update-user';
 
 // components

@@ -1,6 +1,6 @@
 import NavLink from '@/components/common/NavLink';
 import React from 'react';
-import { ProfileType } from '../types/ProfileType';
+import { ProfileType } from '../../types';
 
 const ProfileTab = ({ profile }: ProfileType) => {
   return (

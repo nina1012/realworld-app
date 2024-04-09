@@ -1,8 +1,8 @@
 import { BASE_URL } from '@/config/constants';
 import { Link } from '@/components/link/link';
 import { AiFillHeart } from 'react-icons/ai';
-import { ArticleType } from '../types';
-import ArticleMeta from './ArticleMeta';
+import { ArticleType } from '../../types';
+import ArticleMeta from '../ArticleMeta/ArticleMeta';
 import { Button } from '@/components/button';
 
 export default function ArticlePreview({

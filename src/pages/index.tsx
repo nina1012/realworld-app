@@ -2,8 +2,8 @@ import SectionContainer from '@/components/common/SectionContainer';
 import Banner from '@/components/homepage/Banner';
 import TabList from '@/components/homepage/TabList';
 import Seo from '@/components/seo/seo';
-import ArticleList from '@/features/articles/components/ArticleList';
-import Tags from '@/features/tags/components/Tags';
+import ArticleList from '@/features/articles/components/ArticleList/ArticleList';
+import Tags from '@/features/tags/components/Tags/Tags';
 
 export default function Home() {
   return (

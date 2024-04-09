@@ -1,4 +1,4 @@
-import { ProfileType } from '@/features/profiles/types/ProfileType';
+import { ProfileType } from '@/features/profiles/types';
 
 export type CommentType = {
   id: string;
