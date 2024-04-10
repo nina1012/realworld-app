@@ -4,16 +4,16 @@ import NavLink from '../common/NavLink';
 import { Conditional } from '../common/Conditional';
 import clsx from 'clsx';
 import { FiHash } from 'react-icons/fi';
-import storage from '@/utils/storage';
 import checkLogin from '@/utils/checkLogin';
+import { AuthUser, useUser } from '@/features/auth';
 
 const TabList = () => {
   const router = useRouter();
   const {
     query: { tag },
   } = router;
-  const user = storage.getUser();
-  const isLoggedIn = checkLogin(user);
+  const user = useUser();
+  const isLoggedIn = checkLogin(user.data);
 
   // default tabs when user is not logged in
   if (!isLoggedIn) {
@@ -58,8 +58,8 @@ const TabList = () => {
       <ul className="flex items-center h-full">
         <li className="nav-item">
           <NavLink
-            href={`/?follow=${user?.user?.username}`}
-            as={`/?follow=${user?.user?.username}`}
+            href={`/?follow=${user.data?.user.username}`}
+            as={`/?follow=${user.data?.user.username}`}
             className={!tag ? 'tab-link' : 'tab-link'}
           >
             Your Feed
