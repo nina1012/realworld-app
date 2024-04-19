@@ -2,7 +2,6 @@ import { BASE_URL_API, LIMIT } from '@/config/constants';
 import { apiClient } from '@/lib/api-client';
 import { useQuery } from '@tanstack/react-query';
 import { ArticlesType } from '../types';
-import { getQuery } from '@/utils/getQuery';
 
 // Get most recent articles globally. Use query parameters to filter results. Auth is optional
 export const getArticles = (
@@ -15,24 +14,21 @@ export const getArticles = (
     return apiClient.get(
       `${BASE_URL_API}/articles?author=${encodeURIComponent(
         author
-      )}`
+      )}&offset=${page}&limit=${LIMIT}`
     );
   }
 
   // get articles by tags
   if (tag) {
     return apiClient.get(
-      `${BASE_URL_API}/articles?tag=${tag}`
+      `${BASE_URL_API}/articles?tag=${tag}&offset=${page}&limit=${LIMIT}`
     );
   }
 
   // global articles
 
   return apiClient.get(
-    `${BASE_URL_API}/articles?${getQuery(
-      LIMIT,
-      page ? page : 0
-    )}`
+    `${BASE_URL_API}/articles?&offset=${page}&limit=${LIMIT}`
   );
 };
 
@@ -42,7 +38,7 @@ export const useArticles = (
   page?: number
 ) => {
   const { data: articles, isLoading } = useQuery({
-    queryKey: ['articles', tag, author],
+    queryKey: ['articles', tag, author, page],
     queryFn: () => getArticles(tag, author, page),
   });
 

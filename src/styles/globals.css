@@ -25,4 +25,12 @@
   .action-link {
     @apply flex text-sm h-full !w-auto;
   }
+
+  .pagination-link {
+    @apply relative block rounded bg-primary px-3 py-1.5 text-sm font-medium;
+  }
+
+  .pagination-prev-next {
+    @apply relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100;
+  }
 }
