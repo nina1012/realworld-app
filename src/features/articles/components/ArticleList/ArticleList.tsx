@@ -44,7 +44,10 @@ const ArticleList = () => {
             })}
           </div>
           <Conditional
-            condition={!!articles?.articles || false}
+            condition={
+              !!articles?.articles &&
+              router.pathname === '/'
+            }
           >
             <Pagination
               total={articles?.articles.length || 0}
