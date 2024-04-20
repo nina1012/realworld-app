@@ -29,10 +29,10 @@ export default function Pagination({
     hasPreviousPage,
     hasNextPage,
   } = getPageInfo({
-    limit,
-    articlesPerPage,
     total,
+    limit,
     page: currentPage,
+    articlesPerPage,
   });
 
   const pages =
@@ -45,9 +45,10 @@ export default function Pagination({
   return (
     <nav
       aria-label="pagination"
-      className="w-full h-full"
+      className="w-full h-full bg-neutral-100 py-4"
     >
       <ul className="list-style-none py-2 flex items-center justify-center">
+        {/* previous button */}
         <li
           onClick={() =>
             handlePageChange(currentPage - 1)
@@ -65,56 +66,28 @@ export default function Pagination({
             Previous
           </Link>
         </li>
-        {/* <li>
-          <a
-            className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100  dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
-            href="#!"
-          >
-            1
-          </a>
-        </li>
-        <li aria-current="page">
-          <a
-            className="relative block rounded bg-success-100 px-3 py-1.5 text-sm font-medium text-success-700 transition-all duration-300"
-            href="#!"
-          >
-            2
-            <span className="absolute -m-px h-px w-px overflow-hidden whitespace-nowrap border-0 p-0 [clip:rect(0,0,0,0)]">
-              (current)
-            </span>
-          </a>
-        </li>
-        <li>
-          <a
-            className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
-            href="#!"
-          >
-            3
-          </a>
-        </li> */}
-        {pages.map((page) => {
-          const isCurrent = !currentPage
-            ? page === 0
-            : page === currentPage;
-          console.log(page);
 
+        {/* indicators */}
+        {pages.map((page) => {
+          console.log(pages, firstPage, lastPage);
+          const activePage = page === currentPage;
           return (
             <li
               key={page}
               className={
-                isCurrent
-                  ? 'pagination-link active [clip:rect(0,0,0,0)] pointer-events-none'
+                activePage
+                  ? 'pagination-link active'
                   : 'pagination-link'
               }
-              aria-current="page"
               onClick={() => handlePageChange(page)}
             >
-              <Link href="/" className="page-link">
+              <Link href="/" className="">
                 {page + 1}
               </Link>
             </li>
           );
         })}
+        {/* next button */}
         <li
           onClick={() =>
             handlePageChange(currentPage + 1)
@@ -129,7 +102,7 @@ export default function Pagination({
             Next{' '}
             <span className="ml-2 font-lg">
               <GrFormNext />
-            </span>{' '}
+            </span>
           </Link>
         </li>
       </ul>

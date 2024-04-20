@@ -43,6 +43,7 @@ const ArticleList = () => {
               );
             })}
           </div>
+          {/* only show pagination on homepage / */}
           <Conditional
             condition={
               !!articles?.articles &&

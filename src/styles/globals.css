@@ -27,14 +27,14 @@
   }
 
   .pagination-link {
-    @apply relative block rounded bg-primary px-3 py-1.5  mx-2 text-sm font-medium text-white;
+    @apply relative block rounded bg-primary px-3 py-1.5  mx-2 text-sm font-medium text-white cursor-pointer;
   }
 
   .pagination-link.active {
-    @apply bg-primary/50;
+    @apply bg-primary/50 pointer-events-none border border-neutral-400;
   }
 
   .pagination-prev-next {
-    @apply relative flex items-center rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 w-[100px] mx-8;
+    @apply relative flex items-center rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-zinc-200 w-[100px] mx-8;
   }
 }
