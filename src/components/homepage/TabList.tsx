@@ -58,9 +58,13 @@ const TabList = () => {
       <ul className="flex items-center h-full">
         <li className="nav-item">
           <NavLink
-            href={`/?follow=${user.data?.user.username}`}
-            as={`/?follow=${user.data?.user.username}`}
-            className={!tag ? 'tab-link' : 'tab-link'}
+            href={`/auth/me`}
+            as={`/auth/me`}
+            className={
+              !tag && router.pathname === '/auth/me'
+                ? 'tab-link active-tab'
+                : 'tab-link'
+            }
           >
             Your Feed
           </NavLink>
@@ -71,9 +75,9 @@ const TabList = () => {
             href="/"
             as="/"
             className={clsx(
-              !tag && 'tab-link active-tab',
-              !!tag && !isLoggedIn && 'tab-link',
-              !!isLoggedIn && !!tag && 'tab-link'
+              !tag && router.pathname !== '/'
+                ? 'tab-link '
+                : 'tab-link active-tab'
             )}
           >
             Global Feed

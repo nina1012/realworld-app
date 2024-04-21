@@ -59,7 +59,7 @@ export default function Pagination({
               : ''
           )}
         >
-          <Link className="pagination-prev-next" href="/">
+          <Link className="pagination-prev-next" href="">
             <span className="mr-2 font-lg">
               <GrFormPrevious />
             </span>{' '}
@@ -69,7 +69,6 @@ export default function Pagination({
 
         {/* indicators */}
         {pages.map((page) => {
-          console.log(pages, firstPage, lastPage);
           const activePage = page === currentPage;
           return (
             <li
@@ -81,7 +80,7 @@ export default function Pagination({
               }
               onClick={() => handlePageChange(page)}
             >
-              <Link href="/" className="">
+              <Link href="" className="">
                 {page + 1}
               </Link>
             </li>
@@ -98,7 +97,7 @@ export default function Pagination({
               : ''
           )}
         >
-          <Link className="pagination-prev-next" href="/">
+          <Link className="pagination-prev-next" href="">
             Next{' '}
             <span className="ml-2 font-lg">
               <GrFormNext />
