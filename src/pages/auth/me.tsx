@@ -4,15 +4,20 @@ import { useUser } from '@/features/auth/api/get-current-user';
 import { useLogout } from '@/features/auth/api/logout';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import { GoGear } from 'react-icons/go';
-
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Link } from '@/components/link/link';
 import TabList from '@/components/homepage/TabList';
+import { useFeedArticles } from '@/features/articles/api/get-feed-articles';
+import Spinner from '@/components/common/Spinner';
+import ArticlePreview from '@/features/articles/components/ArticlePreview/ArticlePreview';
+import { usePagination } from '@/stores/pagination';
 
 const MePage = () => {
   const { data, isPending } = useUser();
+
   const router = useRouter();
+  const { currentPage: page } = usePagination();
   const { submit: logout } = useLogout({
     onSuccess: () => {
       // Redirect to the home page after logout
@@ -23,6 +28,8 @@ const MePage = () => {
   const handleLogout = () => {
     logout();
   };
+
+  const { feed, isLoadingFeed } = useFeedArticles(page);
 
   return (
     <>
@@ -61,7 +68,27 @@ const MePage = () => {
           <div className="w-full px-4 h-max">
             {/* articles go here */}
             <TabList />
-            <div> Articles go here...</div>
+            {isLoadingFeed ? (
+              <div className="h-[calc(100vh/2)] flex justify-center items-center">
+                <Spinner
+                  color={''}
+                  w={''}
+                  h={''}
+                  alignment={'center'}
+                />
+              </div>
+            ) : (
+              <div className="mb-12">
+                {feed?.articles?.map((article) => {
+                  return (
+                    <ArticlePreview
+                      article={article}
+                      key={article.slug}
+                    />
+                  );
+                })}
+              </div>
+            )}
           </div>
         </div>
       </SectionContainer>
