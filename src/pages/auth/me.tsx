@@ -10,7 +10,7 @@ import { Link } from '@/components/link/link';
 import TabList from '@/components/homepage/TabList';
 import { useFeedArticles } from '@/features/articles/api/get-feed-articles';
 import Spinner from '@/components/common/Spinner';
-import ArticlePreview from '@/features/articles/components/ArticlePreview/ArticlePreview';
+import ArticlePreview from '@/features/articles/components/ArticlePreview';
 import { usePagination } from '@/stores/pagination';
 
 const MePage = () => {

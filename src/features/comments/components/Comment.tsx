@@ -1,10 +1,10 @@
 import { CustomLink } from '@/components/common/CustomLink';
 import Image from 'next/image';
-import { CommentType } from '../..';
+import { CommentType } from '..';
 import { Conditional } from '@/components/common/Conditional';
 import { useUser } from '@/features/auth';
 import checkLogin from '@/utils/checkLogin';
-import CommentDeleteButton from '../CommentDeleteButton/CommentDeleteButton';
+import CommentDeleteButton from './CommentDeleteButton';
 
 export default function Comment({
   comment,

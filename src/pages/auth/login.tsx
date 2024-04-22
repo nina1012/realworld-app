@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Seo from '@/components/seo/seo';
 import { AuthUser } from '@/features/auth';
 import storage from '@/utils/storage';
-import { LoginForm } from '@/features/auth/components/login-form/login-form';
+import { LoginForm } from '@/features/auth/components/login-form';
 
 const LoginPage = () => {
   const router = useRouter();

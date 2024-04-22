@@ -1,12 +1,12 @@
 import { Button } from '@/components/button';
 import SectionContainer from '@/components/common/SectionContainer';
 import { InputField } from '@/components/form/input-field';
-import { useLogout } from '../../api/logout';
+import { useLogout } from '../api/logout';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
-import { AuthUser, UpdateUser } from '../..';
-import { getCurrentUser } from '../../api/get-current-user';
-import { useUpdate } from '../../api/update-user';
+import { AuthUser, UpdateUser } from '..';
+import { getCurrentUser } from '../api/get-current-user';
+import { useUpdate } from '../api/update-user';
 import { useNotifications } from '@/stores/notifications/notifications';
 
 export type SettingsFormProps = {

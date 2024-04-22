@@ -2,11 +2,11 @@ import { Button } from '@/components/button/button';
 import SectionContainer from '@/components/common/SectionContainer';
 import { InputField } from '@/components/form/input-field';
 
-import { useRegister } from '../../api/register';
+import { useRegister } from '../api/register';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
-import { AuthUser, RegisterData } from '../..';
-import { getCurrentUser } from '../../api/get-current-user';
+import { AuthUser, RegisterData } from '..';
+import { getCurrentUser } from '../api/get-current-user';
 import { useNotifications } from '@/stores/notifications';
 
 export type RegisterFormProps = {

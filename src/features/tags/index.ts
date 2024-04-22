@@ -2,4 +2,4 @@
 export * from './api/get-tags';
 
 // components
-export * from './components/Tags/Tags';
+export * from './components/Tags';

@@ -4,8 +4,8 @@ import { Button } from '@/components/button/button';
 
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
-import { useLogin } from '../../api/login';
-import { AuthUser, LoginData } from '../..';
+import { useLogin } from '../api/login';
+import { AuthUser, LoginData } from '..';
 import { useNotifications } from '@/stores/notifications/notifications';
 
 export type LoginFormProps = {

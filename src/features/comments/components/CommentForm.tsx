@@ -5,10 +5,10 @@ import checkLogin from '@/utils/checkLogin';
 import storage from '@/utils/storage';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { CommentType } from '../..';
+import { CommentType } from '..';
 import { useForm } from 'react-hook-form';
 import { useNotifications } from '@/stores/notifications';
-import { useCreateComment } from '../../api/create-comment';
+import { useCreateComment } from '../api/create-comment';
 import clsx from 'clsx';
 
 export type CommentFormProps = {

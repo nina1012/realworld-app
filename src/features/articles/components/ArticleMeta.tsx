@@ -1,9 +1,9 @@
-import { ArticleType } from '../../types';
+import { ArticleType } from '../types';
 import clsx from 'clsx';
 import { BASE_URL_API } from '@/config/constants';
 import Image from 'next/image';
 import { CustomLink } from '@/components/common/CustomLink';
-import ArticleActions from '../ArticleActions/ArticleActions';
+import ArticleActions from './ArticleActions';
 import { useRouter } from 'next/router';
 import { Conditional } from '@/components/common/Conditional';
 

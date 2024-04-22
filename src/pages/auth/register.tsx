@@ -1,4 +1,4 @@
-import { RegisterForm } from '@/features/auth/components/register-form/register-form';
+import { RegisterForm } from '@/features/auth/components/register-form';
 import { useRouter } from 'next/router';
 import Seo from '@/components/seo/seo';
 import { AuthUser } from '@/features/auth';

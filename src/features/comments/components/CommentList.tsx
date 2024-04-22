@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
-import { CommentType, useComments } from '../..';
-import CommentForm from '../CommentForm/CommentForm';
-import Comment from '../Comment/Comment';
+import { CommentType, useComments } from '..';
+import CommentForm from './CommentForm';
+import Comment from './Comment';
 
 export default function CommentList() {
   const router = useRouter();

@@ -1,7 +1,7 @@
 import Spinner from '@/components/common/Spinner';
-import { useArticles } from '../../api/get-articles';
+import { useArticles } from '../api/get-articles';
 import { useRouter } from 'next/router';
-import ArticlePreview from '../ArticlePreview/ArticlePreview';
+import ArticlePreview from './ArticlePreview';
 import { Conditional } from '@/components/common/Conditional';
 import Pagination from '@/components/common/Pagination';
 import { usePagination } from '@/stores/pagination';

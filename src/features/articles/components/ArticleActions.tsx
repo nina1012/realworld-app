@@ -1,5 +1,5 @@
 import { useUser } from '@/features/auth';
-import { ArticleType } from '../..';
+import { ArticleType } from '..';
 import checkLogin from '@/utils/checkLogin';
 import { Button } from '@/components/button';
 import { FiPlus, FiTrash } from 'react-icons/fi';
@@ -8,7 +8,7 @@ import { Conditional } from '@/components/common/Conditional';
 import { CiEdit } from 'react-icons/ci';
 import { Link } from '@/components/link/link';
 import { useRouter } from 'next/router';
-import { useDeleteArticle } from '../../api/delete-article';
+import { useDeleteArticle } from '../api/delete-article';
 
 export default function ArticleActions({
   article,
