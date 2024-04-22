@@ -8,7 +8,6 @@ import ProfileTab from '@/features/profiles/components/ProfileTab';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { HiHome } from 'react-icons/hi2';
 
 export default function ProfilePage() {
   const router = useRouter();

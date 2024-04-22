@@ -2,6 +2,7 @@ import { Entity } from '@/types';
 
 export type ArticlesType = {
   articles: Omit<ArticleType['article'], 'article'>[];
+  articlesCount?: number;
 };
 export type ArticleType = {
   article: {

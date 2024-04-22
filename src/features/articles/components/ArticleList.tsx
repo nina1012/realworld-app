@@ -33,16 +33,23 @@ const ArticleList = () => {
         </div>
       ) : (
         <>
-          <div className="mb-12">
-            {articles?.articles?.map((article) => {
-              return (
-                <ArticlePreview
-                  article={article}
-                  key={article.slug}
-                />
-              );
-            })}
-          </div>
+          {articles?.articlesCount ? (
+            <div className="mb-12">
+              {articles?.articles?.map((article) => {
+                return (
+                  <ArticlePreview
+                    article={article}
+                    key={article.slug}
+                  />
+                );
+              })}
+            </div>
+          ) : (
+            <div className="text-red-600 text-lg my-5">
+              No articles are here, yet... 😕
+            </div>
+          )}
+
           {/* only show pagination on homepage / */}
           <Conditional
             condition={
@@ -51,7 +58,7 @@ const ArticleList = () => {
             }
           >
             <Pagination
-              total={articles?.articles.length || 0}
+              total={articles?.articlesCount || 0}
               articlesPerPage={10}
             />
           </Conditional>

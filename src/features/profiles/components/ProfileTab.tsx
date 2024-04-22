@@ -14,18 +14,8 @@ const ProfileTab = ({ profile }: ProfileType) => {
             )}`}
             className="tab-link active-tab"
           >
-            My Articles
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink
-            href="/profile/[pid]?favorite=true"
-            as={`/profile/${encodeURIComponent(
-              profile.username
-            )}?favorite=true`}
-            className="tab-link"
-          >
-            Favorited Articles
+            {profile.username.split(' ')[0]}&apos;s
+            Articles
           </NavLink>
         </li>
       </ul>

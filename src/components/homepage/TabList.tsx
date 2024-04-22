@@ -25,9 +25,8 @@ const TabList = () => {
               href="/"
               as="/"
               className={clsx(
-                !tag && 'tab-link active-tab',
-                !!tag && !isLoggedIn && 'tab-link',
-                !!isLoggedIn && !!tag && 'tab-link'
+                !tag ? 'active-tab' : '',
+                'tab-link'
               )}
             >
               Global Feed
@@ -40,7 +39,7 @@ const TabList = () => {
                 href={`/?tag=${tag}`}
                 as={`/?tag=${tag}`}
                 className={clsx(
-                  !!tag && 'active-tab tab-link'
+                  tag && 'active-tab tab-link'
                 )}
               >
                 <FiHash /> {tag}
@@ -60,11 +59,12 @@ const TabList = () => {
           <NavLink
             href={`/auth/me`}
             as={`/auth/me`}
-            className={
-              !tag && router.pathname === '/auth/me'
-                ? 'tab-link active-tab'
-                : 'tab-link'
-            }
+            className={clsx(
+              !tag &&
+                router.pathname !== '/' &&
+                'active-tab',
+              'tab-link'
+            )}
           >
             Your Feed
           </NavLink>
@@ -75,9 +75,10 @@ const TabList = () => {
             href="/"
             as="/"
             className={clsx(
-              !tag && router.pathname !== '/'
-                ? 'tab-link '
-                : 'tab-link active-tab'
+              router.pathname === '/' &&
+                !tag &&
+                'active-tab',
+              'tab-link'
             )}
           >
             Global Feed
@@ -90,7 +91,8 @@ const TabList = () => {
               href={`/?tag=${tag}`}
               as={`/?tag=${tag}`}
               className={clsx(
-                !!tag && 'active-tab tab-link'
+                tag && 'active-tab',
+                'tab-link'
               )}
             >
               <FiHash /> {tag}
