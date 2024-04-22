@@ -51,10 +51,10 @@ export default function ProfilePage() {
           {isLoading ? (
             <div className="flex justify-center items-center min-h-[90vh]">
               <Spinner
-                color={''}
-                w={''}
-                h={''}
-                alignment={'center'}
+                color="primary"
+                w="32"
+                h="32"
+                alignment="center"
               />
             </div>
           ) : (

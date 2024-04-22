@@ -24,7 +24,7 @@ const ArticlePage = () => {
     return (
       <div className="h-screen flex justify-center items-center">
         <Spinner
-          color={''}
+          color={'primary'}
           w={'80'}
           h={'80'}
           alignment={'center'}
@@ -102,10 +102,10 @@ const ArticlePage = () => {
         {/* comments go here... */}
         {isLoadingComments ? (
           <Spinner
-            color={''}
-            w={''}
-            h={''}
-            alignment={''}
+            color="primary"
+            w="32"
+            h="32"
+            alignment="center"
           />
         ) : (
           <CommentList />

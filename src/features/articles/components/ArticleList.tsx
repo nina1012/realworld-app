@@ -25,10 +25,10 @@ const ArticleList = () => {
       {isLoading ? (
         <div className="h-[calc(100vh/2)] flex justify-center items-center">
           <Spinner
-            color={''}
-            w={''}
-            h={''}
-            alignment={'center'}
+            color="primary"
+            w="32"
+            h="32"
+            alignment="center"
           />
         </div>
       ) : (
