@@ -1,6 +1,5 @@
 import { ArticleType } from '../types';
 import clsx from 'clsx';
-import { BASE_URL_API } from '@/config/constants';
 import Image from 'next/image';
 import { CustomLink } from '@/components/common/CustomLink';
 import ArticleActions from './ArticleActions';

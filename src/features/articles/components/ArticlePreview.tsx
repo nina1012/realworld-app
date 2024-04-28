@@ -4,6 +4,9 @@ import { AiFillHeart } from 'react-icons/ai';
 import { ArticleType } from '../types';
 import ArticleMeta from './ArticleMeta';
 import { Button } from '@/components/button';
+import { FavoriteButton } from './FavoriteButton';
+import { useUser } from '@/features/auth';
+import checkLogin from '@/utils/checkLogin';
 
 export default function ArticlePreview({
   article,
@@ -12,11 +15,15 @@ export default function ArticlePreview({
 }) {
   const {
     favoritesCount,
+    favorited,
     slug,
     title,
     description,
     tagList,
   } = article;
+
+  const user = useUser();
+  const isLoggedIn = checkLogin(user.data);
 
   if (!article) return null;
 
@@ -25,12 +32,12 @@ export default function ArticlePreview({
       <div className="flex items-center mb-4">
         <ArticleMeta article={article} />
         <div className="flex ml-auto">
-          <Button
-            className="flex items-center bg-transparent text-primary border-primary border-[1px] text-sm rounded-sm transition-colors hover:bg-primary hover:text-white h-8 w-auto min-w-min "
-            icon={<AiFillHeart />}
-          >
-            <span>{favoritesCount}</span>
-          </Button>
+          <FavoriteButton
+            slug={slug}
+            initialFavorited={article.favorited}
+            initialFavoritesCount={article.favoritesCount}
+            canFavorite={isLoggedIn}
+          />
         </div>
       </div>
       <Link href={`${BASE_URL}/articles/${slug}`}>

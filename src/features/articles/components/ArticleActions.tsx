@@ -3,7 +3,6 @@ import { ArticleType } from '..';
 import checkLogin from '@/utils/checkLogin';
 import { Button } from '@/components/button';
 import { FiPlus, FiTrash } from 'react-icons/fi';
-import { HiHeart } from 'react-icons/hi2';
 import { Conditional } from '@/components/common/Conditional';
 import { CiEdit } from 'react-icons/ci';
 import { Link } from '@/components/link/link';
@@ -38,15 +37,6 @@ export default function ArticleActions({
         >
           <span className="w-full">
             Follow {article.author.username}
-          </span>
-        </Button>
-        <Button
-          variant="outline"
-          className="action-link text-neutral-500 border-neutral-500 hover:bg-neutral-500"
-          icon={<HiHeart />}
-        >
-          <span className="w-full">
-            Favorite Article ({article.favoritesCount})
           </span>
         </Button>
       </div>
