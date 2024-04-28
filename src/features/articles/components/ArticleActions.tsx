@@ -57,8 +57,14 @@ export default function ArticleActions({
           className="action-link text-red-400 border-red-400 hover:bg-red-400 button-like-link"
           icon={<FiTrash />}
           onClick={() => {
-            DeleteArticle();
-            router.push('/');
+            if (
+              prompt(
+                'Do you really want to delete this article? Type yes or no (lowercase)'
+              ) === 'yes'
+            ) {
+              DeleteArticle();
+              router.push('/');
+            }
           }}
         >
           <span className="w-full">Delete Article</span>

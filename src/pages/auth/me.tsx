@@ -12,6 +12,7 @@ import { useFeedArticles } from '@/features/articles/api/get-feed-articles';
 import Spinner from '@/components/common/Spinner';
 import ArticlePreview from '@/features/articles/components/ArticlePreview';
 import { usePagination } from '@/stores/pagination';
+import Pagination from '@/components/common/Pagination';
 
 const MePage = () => {
   const { data, isPending } = useUser();
@@ -87,6 +88,10 @@ const MePage = () => {
                     />
                   );
                 })}
+                <Pagination
+                  total={feed?.articlesCount as number}
+                  articlesPerPage={5}
+                />
               </div>
             )}
           </div>

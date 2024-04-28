@@ -1,7 +1,12 @@
 import clsx from 'clsx';
-import { ForwardedRef, forwardRef } from 'react';
+import {
+  FormEvent,
+  ForwardedRef,
+  forwardRef,
+} from 'react';
 
 import {
+  ChangeHandler,
   FieldError,
   UseFormRegister,
 } from 'react-hook-form';
@@ -14,6 +19,8 @@ export type InputFieldProps = {
   required?: boolean;
   className?: string;
   autoComplete?: 'true' | 'false';
+  onChange?: ((e: FormEvent<HTMLInputElement>) => void) &
+    ChangeHandler;
 } & Partial<
   ReturnType<UseFormRegister<Record<string, unknown>>>
 >;

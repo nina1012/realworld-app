@@ -6,7 +6,12 @@ import { useCreateNewArticle } from '@/features/articles/api/create-new-article'
 import { useNotifications } from '@/stores/notifications';
 import storage from '@/utils/storage';
 import clsx from 'clsx';
-import { FieldError, useForm } from 'react-hook-form';
+import {
+  FieldError,
+  FormState,
+  useForm,
+} from 'react-hook-form';
+import { TagInput } from './tag-input';
 
 export type NewArticleFormProps = {
   onSuccess: () => void;
@@ -40,6 +45,7 @@ export const NewArticleForm = ({
 
   const onSubmit = async (data: NewArticle) => {
     try {
+      console.log(data);
       await NewArticle(data);
       showNotification({
         type: 'success',
@@ -103,6 +109,15 @@ export const NewArticleForm = ({
               {...register('article.body', {
                 required: true,
               })}
+            />
+            <TagInput
+              error={
+                formState.errors['article'] as FieldError
+              }
+              {...register('article.tagList', {
+                required: false,
+              })}
+              tagList={article.article.tagList}
             />
             <Button
               className={clsx(

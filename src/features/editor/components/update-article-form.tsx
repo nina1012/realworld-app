@@ -10,6 +10,7 @@ import { useNotifications } from '@/stores/notifications';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { FieldError, useForm } from 'react-hook-form';
+import { TagInput } from './tag-input';
 
 export type UpdateArticleFormProps = {
   onSuccess: () => void;
@@ -49,6 +50,7 @@ export const UpdateArticleForm = ({
 
   const onSubmit = async (data: ArticleType) => {
     try {
+      console.log(data);
       UpdatedArticle(data);
       showNotification({
         type: 'success',
@@ -67,7 +69,7 @@ export const UpdateArticleForm = ({
   };
 
   return (
-    <div className="py-4 h-[calc(100vh-100px)]">
+    <div className="py-4 h-[calc(100vh-100px)] min-h-screen">
       <SectionContainer styles="text-center">
         <div>
           <div className="mb-4">
@@ -112,18 +114,19 @@ export const UpdateArticleForm = ({
                 required: true,
               })}
             />
+
             <Button
               className={clsx(
-                // isPending && 'opacity-80',
+                isPending && 'opacity-80',
                 'ml-auto'
               )}
               variant="solid"
               type="submit"
-              //   isdisabled={isPending}
+              isdisabled={isPending}
             >
-              {/* {isPending
-                ? 'Publishing...' */}
-              Publish article
+              {isPending
+                ? 'Publishing...'
+                : 'Publish article'}
             </Button>
           </form>
         </div>

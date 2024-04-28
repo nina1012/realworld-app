@@ -84,7 +84,7 @@ export default function ProfilePage() {
       </div>
       <SectionContainer>
         <div className="flex min-h-screen items-start flex-col md:flex-row mt-6 gap-y-5 md:gap-y-0 md:gap-x-5">
-          <div>
+          <div className="w-full">
             {profile && (
               <ProfileTab profile={profile?.profile} />
             )}
