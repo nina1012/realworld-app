@@ -19,7 +19,7 @@ export const getArticles = (
       `${BASE_URL_API}/articles?author=${encodeURIComponent(
         author
       )}&offset=${page}&limit=${LIMIT}`,
-      {
+      user && {
         headers: {
           Authorization: `Token ${user && user.token}`,
         },
@@ -31,7 +31,7 @@ export const getArticles = (
   if (tag) {
     return apiClient.get(
       `${BASE_URL_API}/articles?tag=${tag}&offset=${page}&limit=${LIMIT}`,
-      {
+      user && {
         headers: {
           Authorization: `Token ${user && user.token}`,
         },
@@ -40,12 +40,11 @@ export const getArticles = (
   }
 
   // global articles
-
   return apiClient.get(
     `${BASE_URL_API}/articles?&offset=${page}&limit=${LIMIT}`,
-    {
+    user && {
       headers: {
-        Authorization: `Token ${user && user.token}`,
+        Authorization: `Token ${user?.token}`,
       },
     }
   );

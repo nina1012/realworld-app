@@ -3,8 +3,12 @@ import Spinner from '@/components/common/Spinner';
 import { Link } from '@/components/link/link';
 import Seo from '@/components/seo/seo';
 import ArticleList from '@/features/articles/components/ArticleList';
+import { useUser } from '@/features/auth';
+import { useFollow } from '@/features/profiles/api/follow-profile';
 import { useProfile } from '@/features/profiles/api/get-profile';
+import { FollowButton } from '@/features/profiles/components/FollowButton';
 import ProfileTab from '@/features/profiles/components/ProfileTab';
+import checkLogin from '@/utils/checkLogin';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -15,6 +19,8 @@ export default function ProfilePage() {
   const { profile, isLoading } = useProfile(
     username as string
   );
+  const user = useUser();
+  const isLoggedIn = checkLogin(user.data);
 
   if (!profile && !isLoading) {
     return (
@@ -77,6 +83,13 @@ export default function ProfilePage() {
                 <p className="mb-4 text-zinc-400 max-w-[450px] text-center mx-auto">
                   {profile?.profile.bio}
                 </p>
+                <FollowButton
+                  canFollow={isLoggedIn}
+                  profile={profile || null}
+                  initialFollowing={
+                    profile?.profile.following as boolean
+                  }
+                />
               </div>
             </>
           )}

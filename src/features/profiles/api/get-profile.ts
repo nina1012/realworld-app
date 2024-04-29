@@ -4,20 +4,20 @@ import { useQuery } from '@tanstack/react-query';
 import { ProfileType } from '../types';
 
 export const getProfile = async (
-  name: string
+  username: string
 ): Promise<ProfileType | null> => {
-  if (!name) {
+  if (!username) {
     return Promise.resolve(null);
   }
   return apiClient.get(
-    `${BASE_URL_API}/profiles/${name}`
+    `${BASE_URL_API}/profiles/${username}`
   );
 };
 
-export const useProfile = (name: string) => {
+export const useProfile = (username: string) => {
   const { data: profile, isLoading } = useQuery({
-    queryKey: ['profile', name],
-    queryFn: () => getProfile(name),
+    queryKey: ['profile', username],
+    queryFn: () => getProfile(username),
   });
   return { profile, isLoading };
 };

@@ -65,7 +65,7 @@ export const NewArticleForm = ({
   };
 
   return (
-    <div className="py-4 h-[calc(100vh-100px)]">
+    <div className="py-4 h-[calc(100vh-100px)] min-h-screen">
       <SectionContainer styles="text-center">
         <div>
           <div className="mb-4">
