@@ -12,6 +12,7 @@ import { useFeedArticles } from '@/features/articles/api/get-feed-articles';
 import Spinner from '@/components/common/Spinner';
 import ArticlePreview from '@/features/articles/components/ArticlePreview';
 import { usePagination } from '@/stores/pagination';
+import { Protected } from '@/features/auth/components/protected';
 
 const MePage = () => {
   const { data, isPending } = useUser();
@@ -32,7 +33,7 @@ const MePage = () => {
   const { feed, isLoadingFeed } = useFeedArticles(page);
 
   return (
-    <>
+    <Protected>
       <Seo
         title={`Conduit ${
           isPending ? '' : '| ' + data?.user.username
@@ -104,7 +105,7 @@ const MePage = () => {
           </div>
         </div>
       </SectionContainer>
-    </>
+    </Protected>
   );
 };
 

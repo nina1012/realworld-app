@@ -9,7 +9,7 @@ const LoginPage = () => {
   const router = useRouter();
 
   const onSuccess = (): AuthUser | null => {
-    router.replace('/auth/me');
+    router.replace('/');
     return storage.getUser() || null;
   };
 

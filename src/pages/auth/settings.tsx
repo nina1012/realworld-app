@@ -3,6 +3,7 @@ import Seo from '@/components/seo/seo';
 import { AuthUser } from '@/features/auth';
 import storage from '@/utils/storage';
 import { SettingsForm } from '@/features/auth/components/settings-form';
+import { Protected } from '@/features/auth/components/protected';
 
 const RegisterPage = () => {
   const router = useRouter();
@@ -13,8 +14,10 @@ const RegisterPage = () => {
 
   return (
     <>
-      <Seo title="Conduit | Your Settings" />
-      <SettingsForm onSuccess={onSuccess} />
+      <Protected>
+        <Seo title="Conduit | Your Settings" />
+        <SettingsForm onSuccess={onSuccess} />
+      </Protected>
     </>
   );
 };
