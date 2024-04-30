@@ -77,6 +77,43 @@ export const useFollow = (username: string) => {
   const { mutate: unfollow } = useMutation({
     mutationFn: mutationFnUnfollow,
     mutationKey: ['profile', username],
+    onMutate: async () => {
+      await queryClient.cancelQueries({
+        queryKey: ['profile', username],
+      });
+
+      const prevUnfollowProfile =
+        await queryClient.getQueryData([
+          'profile',
+          username,
+        ]);
+
+      queryClient.setQueryData(
+        ['profile', username],
+        (prevData: ProfileType['profile']) => {
+          if (prevData) {
+            return { ...prevData, following: false };
+          }
+          return prevData;
+        }
+      );
+      return { prevUnfollowProfile };
+    },
+
+    // If the mutation fails,
+    // use the context returned from onMutate to roll back
+    onError: (err, newArticle, context) => {
+      queryClient.setQueryData(
+        ['profile', username],
+        context?.prevUnfollowProfile
+      );
+    },
+    // refetch after error or success:
+    onSettled: () => {
+      return queryClient.invalidateQueries({
+        queryKey: ['profile', username],
+      });
+    },
   });
 
   return { follow, unfollow };

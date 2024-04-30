@@ -4,7 +4,6 @@ import { Link } from '@/components/link/link';
 import Seo from '@/components/seo/seo';
 import ArticleList from '@/features/articles/components/ArticleList';
 import { useUser } from '@/features/auth';
-import { useFollow } from '@/features/profiles/api/follow-profile';
 import { useProfile } from '@/features/profiles/api/get-profile';
 import { FollowButton } from '@/features/profiles/components/FollowButton';
 import ProfileTab from '@/features/profiles/components/ProfileTab';
@@ -83,13 +82,16 @@ export default function ProfilePage() {
                 <p className="mb-4 text-zinc-400 max-w-[450px] text-center mx-auto">
                   {profile?.profile.bio}
                 </p>
-                <FollowButton
-                  canFollow={isLoggedIn}
-                  profile={profile || null}
-                  initialFollowing={
-                    profile?.profile.following as boolean
-                  }
-                />
+                <div className="flex justify-center">
+                  <FollowButton
+                    canFollow={isLoggedIn}
+                    profile={profile || null}
+                    initialFollowing={
+                      profile?.profile
+                        .following as boolean
+                    }
+                  />
+                </div>
               </div>
             </>
           )}

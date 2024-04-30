@@ -13,6 +13,7 @@ import Spinner from '@/components/common/Spinner';
 import ArticlePreview from '@/features/articles/components/ArticlePreview';
 import { usePagination } from '@/stores/pagination';
 import Pagination from '@/components/common/Pagination';
+import ArticleList from '@/features/articles/components/ArticleList';
 
 const MePage = () => {
   const { data, isPending } = useUser();
@@ -80,14 +81,26 @@ const MePage = () => {
               </div>
             ) : (
               <div className="mb-12">
-                {feed?.articles?.map((article) => {
-                  return (
-                    <ArticlePreview
-                      article={article}
-                      key={article.slug}
-                    />
-                  );
-                })}
+                {feed?.articlesCount ? (
+                  feed?.articles?.map((article) => {
+                    return (
+                      <ArticlePreview
+                        article={article}
+                        key={article.slug}
+                      />
+                    );
+                  })
+                ) : (
+                  <div className="flex flex-col gap-4 my-5 mb-10">
+                    <p className="text-red-600 text-lg">
+                      No articles are here, yet... 😕
+                    </p>
+                    <p>
+                      In order to find articles on feed,
+                      you need to follow profiles
+                    </p>
+                  </div>
+                )}
                 <Pagination
                   total={feed?.articlesCount as number}
                   articlesPerPage={5}
