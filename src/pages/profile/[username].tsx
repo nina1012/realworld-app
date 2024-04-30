@@ -82,16 +82,20 @@ export default function ProfilePage() {
                 <p className="mb-4 text-zinc-400 max-w-[450px] text-center mx-auto">
                   {profile?.profile.bio}
                 </p>
-                <div className="flex justify-center">
-                  <FollowButton
-                    canFollow={isLoggedIn}
-                    profile={profile || null}
-                    initialFollowing={
-                      profile?.profile
-                        .following as boolean
-                    }
-                  />
-                </div>
+                {/* show follow button only when user is not looking at their profile */}
+                {profile?.profile.username !==
+                  user.data?.user.username && (
+                  <div className="flex justify-center">
+                    <FollowButton
+                      canFollow={isLoggedIn}
+                      profile={profile || null}
+                      initialFollowing={
+                        profile?.profile
+                          .following as boolean
+                      }
+                    />
+                  </div>
+                )}
               </div>
             </>
           )}

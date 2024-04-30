@@ -8,6 +8,8 @@ import { CiEdit } from 'react-icons/ci';
 import { Link } from '@/components/link/link';
 import { useRouter } from 'next/router';
 import { useDeleteArticle } from '../api/delete-article';
+import { FollowButton } from '@/features/profiles/components/FollowButton';
+import { FavoriteButton } from './FavoriteButton';
 
 export default function ArticleActions({
   article,
@@ -26,6 +28,19 @@ export default function ArticleActions({
   const { submit: DeleteArticle } = useDeleteArticle({
     slug: slug as string,
   });
+
+  if (user.data && !canModify) {
+    return (
+      <div className="flex flex-wrap justify-center text-left md:ml-8 gap-2 my-4 h-8">
+        <FavoriteButton
+          canFavorite={isLoggedIn}
+          slug={slug as string}
+          initialFavorited={article.favorited}
+          initialFavoritesCount={article.favoritesCount}
+        />
+      </div>
+    );
+  }
 
   return (
     <Conditional condition={canModify}>
