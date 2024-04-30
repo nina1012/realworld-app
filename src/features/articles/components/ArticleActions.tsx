@@ -2,7 +2,7 @@ import { useUser } from '@/features/auth';
 import { ArticleType } from '..';
 import checkLogin from '@/utils/checkLogin';
 import { Button } from '@/components/button';
-import { FiPlus, FiTrash } from 'react-icons/fi';
+import { FiTrash } from 'react-icons/fi';
 import { Conditional } from '@/components/common/Conditional';
 import { CiEdit } from 'react-icons/ci';
 import { Link } from '@/components/link/link';
@@ -26,22 +26,6 @@ export default function ArticleActions({
   const { submit: DeleteArticle } = useDeleteArticle({
     slug: slug as string,
   });
-
-  if (user.data && !canModify) {
-    return (
-      <div className="flex flex-wrap justify-center text-left md:ml-8 gap-2 my-4 h-8">
-        <Button
-          variant="outline"
-          className="action-link"
-          icon={<FiPlus />}
-        >
-          <span className="w-full">
-            Follow {article.author.username}
-          </span>
-        </Button>
-      </div>
-    );
-  }
 
   return (
     <Conditional condition={canModify}>
