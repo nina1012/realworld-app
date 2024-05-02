@@ -2,8 +2,6 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { ReactNode } from 'react';
 
-type IconFunction = () => React.ReactNode;
-
 export type NavLinkProps = {
   href: string;
   children: ReactNode;
@@ -11,7 +9,7 @@ export type NavLinkProps = {
   as?: string;
   className?: string;
   onClick?: () => void;
-  icon?: IconFunction | null;
+  icon?: ReactNode | null;
 };
 
 const NavLink = ({
@@ -26,11 +24,11 @@ const NavLink = ({
       href={href}
       className={clsx(
         isActive ? '!text-gray-700' : '!text-gray-300',
-        'mx-2 hover:text-gray-500 transition-colors flex items-center gap-1'
+        'ml-4 hover:text-gray-500 transition-colors flex items-center gap-1'
       )}
       {...props}
     >
-      {icon && <span>{icon()}</span>}
+      {icon && <span>{icon}</span>}
       {children}
     </Link>
   );

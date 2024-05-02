@@ -14,7 +14,8 @@ export const getProfile = async (
 
   return apiClient.get(
     `${BASE_URL_API}/profiles/${username}`,
-    {
+
+    user && {
       headers: {
         Authorization: `Token ${user && user.token}`,
       },

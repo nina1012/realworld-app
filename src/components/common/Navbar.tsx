@@ -3,7 +3,6 @@ import NavLink from './NavLink';
 import LogoLink from './LogoLink';
 import { useUser } from '@/features/auth/api/get-current-user';
 import { Conditional } from './Conditional';
-import Image from 'next/image';
 import { HiOutlinePencilSquare } from 'react-icons/hi2';
 import { CiSettings } from 'react-icons/ci';
 
@@ -24,14 +23,14 @@ const Navbar = () => {
               </NavLink>
               <NavLink
                 href="/editor/new"
-                icon={HiOutlinePencilSquare}
+                icon={<HiOutlinePencilSquare />}
                 isActive={false}
               >
                 <span>New Article</span>
               </NavLink>
               <NavLink
                 href="/auth/settings"
-                icon={CiSettings}
+                icon={<CiSettings />}
                 isActive={false}
               >
                 <span>Settings</span>

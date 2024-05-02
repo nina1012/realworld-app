@@ -11,9 +11,9 @@ export default function Home() {
       <Seo title="Home - Conduit" />
       <div className="pb-20 md:pb-12">
         <Banner />
-        <SectionContainer>
-          <div className="flex min-h-screen items-start flex-col lg:flex-row mt-6 gap-y-5 md:gap-y-0 md:gap-x-5">
-            <div className="w-full md:flex-[0_0_75%] h-max">
+        <SectionContainer styles="">
+          <div className="min-h-screen mt-6 grid grid-cols-1 lg:grid-cols-[75%_25%] items-start">
+            <div className="w-full h-max lg:pr-14">
               <TabList />
               {/* articles go here */}
               <ArticleList />

@@ -27,7 +27,7 @@ const Tags = ({ articleTags }: TagsProps) => {
   }
 
   return (
-    <div className="relative w-full md:flex-[0_0_25%] min-h-[160px] bg-zinc-100 px-3 py-3 rounded-md ml-auto">
+    <div className="tags-container relative w-full md:flex-[0_0_25%] min-h-[160px] bg-zinc-100 px-3 py-3 rounded-md ml-auto">
       <p className="mb-4 text-md">Popular tags</p>
       <div className="flex flex-wrap h-full w-full">
         {isLoading && (
