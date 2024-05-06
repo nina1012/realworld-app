@@ -15,6 +15,7 @@ const Spinner = ({
 }: SpinnerProps) => {
   return (
     <div
+      data-testid="loading"
       className={clsx(
         alignment == 'center'
           ? 'mx-auto text-center'
