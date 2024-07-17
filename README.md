@@ -1,40 +1,74 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ![RealWorld Example App](./public/logo.png)
 
-## Getting Started
+## Project Description
 
-First, run the development server:
+Conduit is a social blogging site (i.e. a Medium.com clone). It uses a custom API for all requests, including authentication.
+This codebase was created to demonstrate a frontend application built with [Next.js](https://nextjs.org/) and [TypeScript](https://www.typescriptlang.org/) including CRUD operations, authentication, routing, pagination, and more.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+For more information on how to this works with other frontends/backends, head over to the [RealWorld](https://github.com/gothinkster/realworld) repo.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## General functionality:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- [x] Authenticate users via JWT (login/signup pages + logout button on settings page)
+- [x] CRU- users (sign up & settings page - no deleting required)
+- [x] CRUD Articles
+- [x] CR-D Comments on articles (no updating required)
+- [x] GET and display paginated lists of articles
+- [x] Favorite articles
+- [x] Follow other users
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Routing Guidelines
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Home page (URL:'/'):
+  - List of tags
+  - List of articles pulled from either Feed, Global, or by Tag
+  - Pagination for list of articles
+- Sign in/Sign up pages (URL: /auth/login, /auth/register):
+  - Uses JWT (store the token in localStorage)
+  - Authentication can be easily switched to session/cookie based
+- Settings page (URL: /auth/settings)
+- Editor page to create/edit articles:
+  - Create articles (URL: /editor/new)
+  - Edit articles (URL: /editor/slug)
+- Article page (URL: /article/slug):
+  - Delete article button (only shown to article's author)
+  - Render markdown from server client side
+  - Comments section at bottom of page
+  - Delete comment button (only shown to comment's author)
+- Profile page (URL: /profile/:username)
+  - Get authenticated user info and profile (URL: /auth/me)
+  - Show basic user info
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Tech Stack
 
-## Learn More
+- **Frontend:** React, TypeScript, Next.js, Tailwind CSS
+- **State Management:** React Query, Zustand
+- **Form Management:** React Hook Form
+- **Testing:** Jest, React Testing Library
 
-To learn more about Next.js, take a look at the following resources:
+## Installation and Setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the repository:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```bash
+   git clone https://github.com/nina1012/realworld-app.git
+   cd realworld-app
+   ```
 
-## Deploy on Vercel
+2. **Install dependencies:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. **Set up environment variables:**
+
+   ```bash
+    Command goes here... TO DO!!!
+   ```
+
+4. **Run the development server:**
+
+   ```bash
+   npm run dev
+   ```
