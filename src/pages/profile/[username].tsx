@@ -1,6 +1,6 @@
 import SectionContainer from '@/components/common/SectionContainer';
 import Spinner from '@/components/common/Spinner';
-import { Link } from '@/components/link/link';
+import { Link } from '@/components/link/Link';
 import Seo from '@/components/seo/seo';
 import ArticleList from '@/features/articles/components/ArticleList';
 import { useUser } from '@/features/auth';

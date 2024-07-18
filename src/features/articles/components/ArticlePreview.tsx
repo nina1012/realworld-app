@@ -1,5 +1,5 @@
 import { BASE_URL } from '@/config/constants';
-import { Link } from '@/components/link/link';
+import { Link } from '@/components/link/Link';
 import { AiFillHeart } from 'react-icons/ai';
 import { ArticleType } from '../types';
 import ArticleMeta from './ArticleMeta';

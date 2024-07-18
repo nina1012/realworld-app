@@ -4,12 +4,12 @@ import {
   getRange,
 } from '@/utils/paginationUtils';
 import clsx from 'clsx';
+import { Link } from '../link/Link';
 
 import {
   GrFormNext,
   GrFormPrevious,
 } from 'react-icons/gr';
-import { Link } from '../link/link';
 
 type PaginationProps = {
   total: number;

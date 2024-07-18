@@ -6,7 +6,7 @@ import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import { GoGear } from 'react-icons/go';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { Link } from '@/components/link/link';
+import { Link } from '@/components/link/Link';
 import TabList from '@/components/homepage/TabList';
 import { useFeedArticles } from '@/features/articles/api/get-feed-articles';
 import Spinner from '@/components/common/Spinner';

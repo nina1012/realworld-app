@@ -5,7 +5,7 @@ import { Button } from '@/components/button';
 import { FiTrash } from 'react-icons/fi';
 import { Conditional } from '@/components/common/Conditional';
 import { CiEdit } from 'react-icons/ci';
-import { Link } from '@/components/link/link';
+import { Link } from '@/components/link/Link';
 import { useRouter } from 'next/router';
 import { useDeleteArticle } from '../api/delete-article';
 import { FollowButton } from '@/features/profiles/components/FollowButton';
