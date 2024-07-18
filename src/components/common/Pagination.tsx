@@ -4,7 +4,7 @@ import {
   getRange,
 } from '@/utils/paginationUtils';
 import clsx from 'clsx';
-import { Link } from '../link/link';
+import { Link } from '../link';
 
 import {
   GrFormNext,
