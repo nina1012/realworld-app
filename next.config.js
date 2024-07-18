@@ -2,7 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['api.realworld.io'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'api.realworld.io',
+        pathname: '**',
+      },
+    ],
   },
 };
 

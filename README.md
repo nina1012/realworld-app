@@ -1,13 +1,13 @@
 # ![RealWorld Example App](./public/logo.png)
 
-## Project Description
+## Project Description 📖
 
 Conduit is a social blogging site (i.e. a Medium.com clone). It uses a custom API for all requests, including authentication.
 This codebase was created to demonstrate a frontend application built with [Next.js](https://nextjs.org/) and [TypeScript](https://www.typescriptlang.org/) including CRUD operations, authentication, routing, pagination, and more.
 
 For more information on how to this works with other frontends/backends, head over to the [RealWorld](https://github.com/gothinkster/realworld) repo.
 
-## General functionality:
+## General functionality and features✨
 
 - [x] Authenticate users via JWT (login/signup pages + logout button on settings page)
 - [x] CRU- users (sign up & settings page - no deleting required)
@@ -17,7 +17,7 @@ For more information on how to this works with other frontends/backends, head ov
 - [x] Favorite articles
 - [x] Follow other users
 
-## Routing Guidelines
+## Routing Guidelines 🧭
 
 - Home page (URL:'/'):
   - List of tags
@@ -39,14 +39,14 @@ For more information on how to this works with other frontends/backends, head ov
   - Get authenticated user info and profile (URL: /auth/me)
   - Show basic user info
 
-## Tech Stack
+## Tech Stack 🛠️
 
 - **Frontend:** React, TypeScript, Next.js, Tailwind CSS
 - **State Management:** React Query, Zustand
 - **Form Management:** React Hook Form
 - **Testing:** Jest, React Testing Library
 
-## Installation and Setup
+## Installation and Setup 🛠️
 
 1. **Clone the repository:**
 
@@ -72,3 +72,12 @@ For more information on how to this works with other frontends/backends, head ov
    ```bash
    npm run dev
    ```
+
+## Usage 👥
+
+To explore the app without registering, use the following demo account credentials:
+
+- Email: demo@user.com
+- Password: password123
+
+Simply log in with these credentials to start using the application. 🚀
