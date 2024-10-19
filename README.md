@@ -81,3 +81,14 @@ To explore the app without registering, use the following demo account credentia
 - Password: password123
 
 Simply log in with these credentials to start using the application. 🚀
+
+## ⚠️ Important Notice
+
+**Please note:** The app may not render or function correctly if the API (https://api.realworld.io/api/) is down or experiencing issues. This could affect features such as user authentication, data fetching, and any dynamic content relying on the backend.
+
+If you encounter problems:
+
+1. Try refreshing the page.
+2. Check if the API service is available.
+
+We apologize for any inconvenience this may cause.
