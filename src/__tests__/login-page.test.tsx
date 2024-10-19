@@ -26,7 +26,7 @@ describe('Login Page', () => {
       screen.getByLabelText(/password/i);
 
     const submitButton = screen.getByRole('button', {
-      name: /sign up/i,
+      name: /sign in/i,
     });
 
     const credentials = {

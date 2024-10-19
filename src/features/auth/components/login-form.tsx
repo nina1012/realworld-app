@@ -79,7 +79,7 @@ export const LoginForm = ({
               className="!ml-auto"
               variant="solid"
             >
-              Sign up
+              Sign in
             </Button>
           </form>
         </div>
