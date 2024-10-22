@@ -12,8 +12,8 @@ export const Notifications = () => {
 
   if (notifications.length < 1) return null;
   return (
-    <section className="fixed bottom-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
-      <div className="group pointer-events-auto relative flex w-full items-center justify-between space-x-2 overflow-hidden rounded-md p-4 pr-6 shadow-lg transition-all border bg-white text-black">
+    <section className="fixed bottom-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px] overflow-x-scroll">
+      <div className="group visible pointer-events-auto relative flex w-full items-center justify-between md:flex-row space-x-2 overflow-auto rounded-md p-4 pr-6 shadow-lg transition-all gap-8 border bg-white text-black">
         {notifications.map((notification) => (
           <div
             key={notification.id}
