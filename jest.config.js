@@ -5,12 +5,15 @@ const createJestConfig = nextJest({
 });
 
 const customJestConfig = {
+  setupFilesAfterEnv: [
+    '<rootDir>/src/testing/setup-tests.ts',
+  ],
   moduleDirectories: ['node_modules', '<rootDir>/'],
   testEnvironment: 'jest-environment-jsdom',
   moduleNameMapper: {
     '@/(.*)': '<rootDir>/src/$1',
   },
-  // testPathIgnorePatterns: ['<rootDir>/cypress/'],
+  testPathIgnorePatterns: ['<rootDir>/cypress/'],
 };
 
-module.exports = createJestConfig(customJestConfig);
+export default createJestConfig(customJestConfig);
