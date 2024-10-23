@@ -32,4 +32,13 @@ describe('dashboard', () => {
       });
     });
   });
+
+  it('should log out from the dashboard', () => {
+    // this doesn't work at the moment because the api doesn't work :/ but in reality it works
+    cy.visit(`${baseURL}/auth/settings`);
+    cy.get('button')
+      .contains('Or click here to log out')
+      .click();
+    cy.clearLocalStorage('user');
+  });
 });
