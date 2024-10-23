@@ -34,7 +34,7 @@ describe('dashboard', () => {
   });
 
   it('should log out from the dashboard', () => {
-    // this doesn't work at the moment because the api doesn't work :/ but in reality it works
+    // this doesn't work at the moment because the api doesn't work :/ but when api gets fixed, it'll work
     cy.visit(`${baseURL}/auth/settings`);
     cy.get('button')
       .contains('Or click here to log out')
