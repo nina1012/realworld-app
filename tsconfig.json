@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["@testing-library/jest-dom"],
+    "types": ["@testing-library/jest-dom", "jest"],
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -38,6 +38,7 @@
     ".next",
     "out",
     "build",
+    "cypress",
     "cypress.config.ts" // https://github.com/cypress-io/cypress/issues/25894#issuecomment-1799475985 this helped get rid of the bug
   ]
 }
