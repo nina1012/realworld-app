@@ -1,0 +1,18 @@
+name: CI/CD
+on:
+- push
+jobs:
+    code-checks:
+        name: Code Checks
+        runs-on:ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4 # IMPORTANT TO NOTE! this action allows the job to access the repository
+            - uses: actions/setup-node@v4
+            with:
+                node-version: 18
+            - run: mv .env.example .env
+            - run: npm install
+            - run: npm run test
+            - run: npm run lint
+            - run: npm run format:check
+            - run: npm run types:check
