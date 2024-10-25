@@ -1,6 +1,6 @@
 import { testData } from '../../src/testing/test-data';
 
-describe('dashboard', () => {
+describe('Dashboard flow', () => {
   const user = testData.testUserData.user;
   const baseURL = 'http://localhost:3000';
   it('should authenticate into the dashboard', () => {

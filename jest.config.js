@@ -16,4 +16,4 @@ const customJestConfig = {
   testPathIgnorePatterns: ['<rootDir>/cypress/'],
 };
 
-export default createJestConfig(customJestConfig);
+module.exports = createJestConfig(customJestConfig);
