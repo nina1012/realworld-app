@@ -5,7 +5,7 @@ jobs:
     # FIRST JOB => check if code is valid
     code-checks:
         name: Code Checks
-        runs-on:ubuntu-latest
+        runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4 # IMPORTANT TO NOTE! this action allows the job to access/check out the repository under $GITHUB_WORKSPACE (https://github.com/marketplace/actions/checkout)
             - uses: actions/setup-node@v4
@@ -21,10 +21,10 @@ jobs:
     # it will build the app, start it and run all e2e tests
     e2e:
         name: E2E Tests
-        runs-on:ubuntu-latest
+        runs-on: ubuntu-latest
         steps: 
             - uses: actions/checkout@v4
-            - uses: cypress-io/github-action@v6 # this action install dependencies and caches them for future use, then run cypress e2e tests on election browser and gives us test summary after completion (https://github.com/marketplace/actions/cypress-io)
+            - uses: cypress-io/github-action@v6 # this action installs dependencies and caches them for future use, then run cypress e2e tests on election browser and gives us test summary after completion (https://github.com/marketplace/actions/cypress-io)
             with:
                 build: npm run build
                 start: npm run start
