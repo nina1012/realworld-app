@@ -82,7 +82,7 @@ To explore the app without registering, use the following demo account credentia
 
 Simply log in with these credentials to start using the application. 🚀
 
-## ⚠️ Important Notice
+## Important Notice ⚠️
 
 **Please note:** The app may not render or function correctly if the API (https://api.realworld.io/api/) is down or experiencing issues. This could affect features such as user authentication, data fetching, and any dynamic content relying on the backend.
 
@@ -92,3 +92,5 @@ If you encounter problems:
 2. Check if the API service is available.
 
 We apologize for any inconvenience this may cause.
+
+**Additional Note:** `dashboard.cy.ts` tests have been temporarily commented out in the workflow due to their dependency on the API, which is currently unstable (as of October 26th). This allows other tests to proceed until the API is reliable.
