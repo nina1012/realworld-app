@@ -1,31 +1,31 @@
 name: CI/CD
 on:
-- push
+  - push
 jobs:
-    # FIRST JOB => check if code is valid
-    code-checks:
-        name: Code Checks
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4 # IMPORTANT TO NOTE! this action allows the job to access/check out the repository under $GITHUB_WORKSPACE (https://github.com/marketplace/actions/checkout)
-            - uses: actions/setup-node@v4
-            with:
-                node-version: 18
-            - run: mv .env.example .env
-            - run: npm install
-            - run: npm run test
-            - run: npm run lint
-            - run: npm run format:check
-            - run: npm run types:check
-    # SECOND JOB => run e2e tests
-    # it will build the app, start it and run all e2e tests
-    e2e:
-        name: E2E Tests
-        runs-on: ubuntu-latest
-        steps: 
-            - uses: actions/checkout@v4
-            - uses: cypress-io/github-action@v6 # this action installs dependencies and caches them for future use, then run cypress e2e tests on election browser and gives us test summary after completion (https://github.com/marketplace/actions/cypress-io)
-            with:
-                build: npm run build
-                start: npm run start
-
+  # FIRST JOB => check if code is valid
+  code-checks:
+    name: Code Checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4 # IMPORTANT TO NOTE! this action allows the job to access/check out the repository under $GITHUB_WORKSPACE (https://github.com/marketplace/actions/checkout)
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: mv .env.example .env
+      - run: npm install
+      - run: npm run test
+      - run: npm run lint
+      - run: npm run format:check
+      - run: npm run types:check
+  # SECOND JOB => run e2e tests
+  # it will build the app, start it and run all e2e tests
+  e2e:
+    name: E2E Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: mv .env.example .env
+      - uses: cypress-io/github-action@v6 # this action installs dependencies and caches them for future use, then run cypress e2e tests on election browser and gives us test summary after completion (https://github.com/marketplace/actions/cypress-io)
+        with:
+          build: npm run build
+          start: npm run start
