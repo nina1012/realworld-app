@@ -87,7 +87,7 @@ Simply log in with these credentials to start using the application. 🚀
 
 ## Important Notice ⚠️
 
-**Please note:** The app may not render or function correctly if the API (https://api.realworld.io/api/) is down or experiencing issues. This could affect features such as user authentication, data fetching, and any dynamic content relying on the backend.
+**Please note:** The app may not render or function correctly if the API (https://api.realworld.io/api/) is down or experiencing issues. This could affect features such as user authentication, data fetching, and any dynamic content relying on the backend. To demonstrate the functionality of the application, I have included several demo Articles and Tags. These are designed to showcase the core features of the app, even if the API is not working properly or is unavailable.
 
 If you encounter problems:
 

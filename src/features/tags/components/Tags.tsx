@@ -1,6 +1,8 @@
 import Spinner from '@/components/common/Spinner';
 import { Link } from '@/components/link/Link';
 import { useTags } from '@/features/tags';
+import { demoTags } from '../demoData';
+import { GoInfo } from 'react-icons/go';
 
 type TagsProps = {
   articleTags?: string[];
@@ -29,6 +31,15 @@ const Tags = ({ articleTags }: TagsProps) => {
   return (
     <div className="tags-container relative w-full md:flex-[0_0_25%] min-h-[160px] bg-zinc-100 px-3 py-3 rounded-md ml-auto">
       <p className="mb-4 text-md">Popular tags</p>
+      {tags === demoTags && (
+        <div className="banner my-2 gap-2 flex items-center justify-center bg-red-100 text-red-800 p-4 rounded-md shadow-md mb-4">
+          <GoInfo size={40} />
+          <p className="text-xs font-medium">
+            You&apos;re viewing sample tags as the service
+            is temporarily unavailable.
+          </p>
+        </div>
+      )}
       <div className="flex flex-wrap h-full w-full">
         {isLoading && (
           <Spinner

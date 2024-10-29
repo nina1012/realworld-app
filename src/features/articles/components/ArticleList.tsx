@@ -5,6 +5,8 @@ import ArticlePreview from './ArticlePreview';
 import { Conditional } from '@/components/common/Conditional';
 import Pagination from '@/components/common/Pagination';
 import { usePagination } from '@/stores/pagination';
+import { demoArticles } from '../demoData';
+import { GoInfo } from 'react-icons/go';
 
 const ArticleList = () => {
   const router = useRouter();
@@ -33,6 +35,15 @@ const ArticleList = () => {
         </div>
       ) : (
         <>
+          {articles === demoArticles && (
+            <div className="banner my-2 flex gap-2 items-center justify-center bg-red-100 text-red-800 p-4 rounded-md shadow-md mb-4">
+              <GoInfo size={20} />
+              <p className="text-sm font-medium">
+                You&apos;re viewing sample articles as the
+                service is temporarily unavailable.
+              </p>
+            </div>
+          )}
           {articles?.articlesCount ? (
             <div className="mb-12">
               {articles?.articles?.map((article) => {
