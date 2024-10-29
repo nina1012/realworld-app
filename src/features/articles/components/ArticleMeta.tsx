@@ -33,7 +33,7 @@ export default function ArticleMeta({
       <CustomLink
         href={`/profile/${username}`}
         as={`/profile/${encodeURIComponent(username)}`}
-        className="flex self-center text-base text-primary mr-2"
+        className="flex self-start text-base text-primary mr-2"
       >
         <Image
           width={32}

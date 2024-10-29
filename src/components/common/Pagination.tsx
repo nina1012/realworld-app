@@ -48,7 +48,7 @@ export default function Pagination({
       aria-label="pagination"
       className="w-full h-full bg-neutral-100 py-4"
     >
-      <ul className="list-style-none py-2 flex items-center justify-center">
+      <ul className="list-style-none p-2 flex items-center justify-center">
         {/* previous button */}
         <li
           onClick={() =>
@@ -61,10 +61,10 @@ export default function Pagination({
           )}
         >
           <Link className="pagination-prev-next" href="">
-            <span className="mr-2 font-lg">
+            <span className="mr-1 font-lg">
               <GrFormPrevious />
             </span>{' '}
-            Previous
+            Prev
           </Link>
         </li>
 
@@ -100,7 +100,7 @@ export default function Pagination({
         >
           <Link className="pagination-prev-next" href="">
             Next{' '}
-            <span className="ml-2 font-lg">
+            <span className="ml-1 font-lg">
               <GrFormNext />
             </span>
           </Link>

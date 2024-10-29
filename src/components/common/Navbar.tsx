@@ -16,7 +16,7 @@ const Navbar = () => {
           <div className="text-2xl mr-auto">
             <LogoLink />
           </div>
-          <ul className="flex items-center">
+          <ul className="flex items-center text-sm md:text-base">
             <Conditional condition={!!data}>
               <NavLink href="/" isActive={true}>
                 <span>Home</span>
