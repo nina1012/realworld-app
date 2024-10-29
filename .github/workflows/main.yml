@@ -29,3 +29,39 @@ jobs:
         with:
           build: npm run build
           start: npm run start
+  # THIRD JOB => deploy to vercel
+  deploy:
+    name: Deploy To Vercel
+    runs-on: ubuntu-latest
+    needs: [code-checks, e2e] # this means that deploy job depends on the 2 previous jobs
+    if github.repository_owner == 'nina1012'
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: start deployment
+      uses: bobheadxi/deployments@v1 # before and after deployment to update the deployment status in github
+      id: deployment
+      with:
+        step: start
+        token: ${{ secrets.GITHUB_TOKEN }}
+        env: ${{ fromJSON('["Production", "Preview"]')[github.ref != 'refs/heads/main'] }}
+      - uses: actions/checkout@v4
+      - run: mv .env.example .env
+      - uses: amondnet/vercel-action@v25 # This action makes a deployment with github actions instead of Vercel builder
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-args: ${{ fromJSON('["--prod", ""]')[github.ref != 'refs/heads/master'] }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
+          scope: ${{ secrets.VERCEL_ORG_ID}}
+          working-directory: ./
+      - name: update deployment status
+        uses: bobheadxi/deployments@v1 # after the deployment
+        if: always()
+        with:
+          step: finish
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          env: ${{ steps.deployment.outputs.env }}
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
