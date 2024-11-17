@@ -47,7 +47,7 @@ For more information on how to this works with other frontends/backends, head ov
 - **Frontend:** React, TypeScript, Next.js, Tailwind CSS
 - **State Management:** React Query, Zustand
 - **Form Management:** React Hook Form
-- **Testing:** Jest, React Testing Library
+- **Testing:** Jest, Cypress, React Testing Library
 
 ## Installation and Setup 🛠️
 
@@ -94,6 +94,6 @@ If you encounter problems:
 1. Try refreshing the page.
 2. Check if the API service is available.
 
-We apologize for any inconvenience this may cause.
+I apologize for any inconvenience this may cause.
 
 **Additional Note:** `dashboard.cy.ts` tests have been temporarily commented out in the workflow due to their dependency on the API, which is currently unstable (as of October 26th). This allows other tests to proceed until the API is reliable.
