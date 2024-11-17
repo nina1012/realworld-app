@@ -1,6 +1,3 @@
----
----
-
 # ![RealWorld Example App](./public/logo.png)
 
 ## Project Description 📖
@@ -48,6 +45,7 @@ For more information on how to this works with other frontends/backends, head ov
 - **State Management:** React Query, Zustand
 - **Form Management:** React Hook Form
 - **Testing:** Jest, Cypress, React Testing Library
+- **CI/CD**: GitHub Actions
 
 ## Installation and Setup 🛠️
 
